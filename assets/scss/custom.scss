@@ -1,0 +1,57 @@
+/* Social Media */
+.fa-linkedin {
+  color: rgba(0, 119, 181, 1);
+}
+
+.fa-twitter {
+  color: rgba(29, 161, 242, 1);
+}
+
+.fa-github {
+  color: rgba(64, 120, 192, 1);
+}
+
+.fa-envelope {
+  mix-blend-mode: hard-light;
+}
+
+.fa-mobile {
+  color: rgba(0, 0, 0, 1);
+}
+
+.fa-skype {
+  color: rgba(0, 175, 240, 1);
+}
+
+.ai-orcid {
+  color: rgba(166, 206, 57, 1);
+}
+
+.ai-researchgate {
+  color: rgba(0, 233, 197, 1);
+}
+
+.dark .card .section-subheading a {
+  color: rgba(187, 222, 251, 1);
+  border-bottom: solid 1px transparent;
+}
+
+body:not(.dark) .mongo_dark {
+  display: none;
+}
+
+.dark .mongo_light {
+  display: none;
+}
+
+body:not(.dark) .neo4j_dark {
+  display: none;
+}
+
+.dark .neo4j_light {
+  display: none;
+}
+
+.course_notes {
+  font-size: small;
+}

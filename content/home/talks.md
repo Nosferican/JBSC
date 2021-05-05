@@ -7,7 +7,7 @@ widget: pages
 headless: true
 
 # Order that this section appears on the page.
-weight: 70
+weight: 5
 
 title: 'Recent & Upcoming Talks'
 subtitle:
@@ -19,7 +19,7 @@ content:
   count: 5
   # Filter on criteria
   filters:
-    author: ""
+    author: "José Bayoán Santiago Calderón"
     category: ""
     tag: ""
     exclude_featured: false

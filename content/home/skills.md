@@ -7,7 +7,7 @@ widget: featurette
 headless: true
 
 # Order that this section appears on the page.
-weight: 30
+weight: 2
 
 title: Skills
 subtitle:
@@ -16,30 +16,32 @@ subtitle:
 # - Add/remove as many `feature` blocks below as you like.
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
-- description: 90%
-  icon: r-project
-  icon_pack: fab
-  name: R
-- description: 100%
-  icon: chart-line
+- icon: chart-line
   icon_pack: fas
-  name: Statistics
-- description: 10%
-  icon: camera-retro
+  name: Statistics, Data Science, Machine Learning
+  description: Regression Analysis<br>Econometrics<br>Scalable Data Analysis
+- icon: code
   icon_pack: fas
-  name: Photography
+  name: Programming
+  description: Julia, R, SQL, Git, Linux <br> Scientific Computing, Software Development <br> High-Performance Computing, Cloud Computing
+- icon: tools
+  icon_pack: fas
+  name: Methods
+  description: Agent-Based Modeling (ABM) <br> Social Network Analysis <br> Geographic Information Systems (GIS) <br> Text Mining, Natural Language Processing (NLP)
 
 # Uncomment to use emoji icons.
-#- icon: ":smile:"
-#  icon_pack: "emoji"
-#  name: "Emojiness"
-#  description: "100%"  
+# [[feature]]
+#  icon = ":smile:"
+#  icon_pack = "emoji"
+#  name = "Emojiness"
+#  description = "100%"  
 
 # Uncomment to use custom SVG icons.
 # Place custom SVG icon in `assets/images/icon-pack/`, creating folders if necessary.
 # Reference the SVG icon name (without `.svg` extension) in the `icon` field.
-#- icon: "your-custom-icon-name"
-#  icon_pack: "custom"
-#  name: "Surfing"
-#  description: "90%"
+# [[feature]]
+#  icon = "your-custom-icon-name"
+#  icon_pack = "custom"
+#  name = "Surfing"
+#  description = "90%"
 ---

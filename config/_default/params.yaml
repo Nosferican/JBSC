@@ -16,44 +16,34 @@ site_type: Person
 local_business_type: ''
 org_name: ''
 description: ''
-twitter: ''
+twitter: 'Nosferican'
 
 # Contact (edit or remove options as required)
 
-email: test@example.org
-phone: 888 888 88 88
+email: naoyabpr@gmail.com
+phone: +1 (787) 604-2561
 address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
+  street: 
+  city: Arlington
+  region: VA
+  postcode: 
   country: United States
   country_code: US
 coordinates:
-  latitude: '37.4275'
-  longitude: '-122.1697'
-directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
+  latitude: 
+  longitude: 
+directions: 
 office_hours:
-  - 'Monday 10:00 to 13:00'
-  - 'Wednesday 09:00 to 10:00'
-appointment_url: 'https://calendly.com'
+appointment_url: 
 contact_links:
   - icon: twitter
     icon_pack: fab
     name: DM Me
-    link: 'https://twitter.com/Twitter'
+    link: 'https://twitter.com/Nosferican'
   - icon: skype
     icon_pack: fab
     name: Skype Me
-    link: 'skype:echo123?call'
-  - icon: keybase
-    icon_pack: fab
-    name: Chat on Keybase
-    link: 'https://keybase.io/'
-  - icon: comments
-    icon_pack: fas
-    name: Discuss on Forum
-    link: 'https://discourse.gohugo.io'
+    link: 'skype:Nosferican?call'
 
 # Site header
 
@@ -68,17 +58,17 @@ main_menu:
 
 # Localization
 
-date_format: 'Jan 2, 2006'
-time_format: '3:04 PM'
+date_format: '2006-01-02'
+time_format: '15:04 MST'
 address_format: en-us
 
 # Site features
 
 highlight: true
 highlight_languages:
-  - r
+  - Julia
 math: false
-diagram: false
+diagram: true
 privacy_pack: false
 edit_page:
   repo_url: ''
@@ -108,10 +98,10 @@ copyright_license:
 abstract_length: 135
 plugins_js: []
 avatar:
-  gravatar: false
+  gravatar: true
   shape: circle
 publications:
-  date_format: January 2006
+  date_format: 2006-01
   citation_style: apa
 projects:
   post_view: 2
@@ -129,7 +119,7 @@ comments:
     publication: true
     event: true
   disqus:
-    shortname: ''
+    shortname: 'Nosferican'
     show_count: true
   commento:
     url: ''
