@@ -134,7 +134,7 @@ experience:
     logo_width: 75px
     logo_height: 75px
     location: Portland, OR
-    date_start: '2015-09-13'
+    date_start: '2016-09-13'
     date_end: '2018-08-01'
     description: |2-
         Worked on three projects:
