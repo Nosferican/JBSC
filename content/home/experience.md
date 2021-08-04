@@ -32,7 +32,7 @@ experience:
     date_start: '2021-05-10'
     date_end: ''
     description: |2-
-        Working with the National Economic Accounts research group.
+        Working on topics related to the digital economy and measuring intangible assets (e.g., open-source software, data).
 
         Supervisor: [Dylan Rassier, PhD](https://www.bea.gov/research/meet-the-researchers/dylan-rassier)
   
