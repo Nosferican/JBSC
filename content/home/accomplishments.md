@@ -6,8 +6,11 @@ widget: accomplishments
 # This file represents a page section.
 headless: true
 
+# Activate this widget? true/false
+active: true
+
 # Order that this section appears on the page.
-weight: 7
+weight: 6
 
 # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
 title: 'Certificates'

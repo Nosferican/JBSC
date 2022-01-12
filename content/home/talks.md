@@ -6,8 +6,11 @@ widget: pages
 # This file represents a page section.
 headless: true
 
+# Activate this widget? true/false
+active: true
+
 # Order that this section appears on the page.
-weight: 5
+weight: 4
 
 title: 'Recent & Upcoming Talks'
 subtitle:
@@ -22,7 +25,7 @@ content:
     author: "José Bayoán Santiago Calderón"
     category: ""
     tag: ""
-    exclude_featured: true
+    exclude_featured: false
     exclude_future: false
     exclude_past: false
     publication_type: ""

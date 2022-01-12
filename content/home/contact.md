@@ -3,11 +3,11 @@
 # Documentation: https://sourcethemes.com/academic/docs/page-builder/
 widget: contact
 
-# This file represents a page section.
-headless: true
-
 # Activate this widget? true/false
 active: false
+
+# This file represents a page section.
+headless: true
 
 # Order that this section appears on the page.
 weight: 130

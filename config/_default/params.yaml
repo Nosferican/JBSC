@@ -30,11 +30,11 @@ address:
   country: United States
   country_code: US
 coordinates:
-  latitude: 
-  longitude: 
-directions: 
+  latitude:
+  longitude:
+directions:
 office_hours:
-appointment_url: 
+appointment_url:
 contact_links:
   - icon: twitter
     icon_pack: fab
@@ -44,6 +44,14 @@ contact_links:
     icon_pack: fab
     name: Skype Me
     link: 'skype:Nosferican?call'
+  # - icon: keybase
+  #   icon_pack: fab
+  #   name: Chat on Keybase
+  #   link: 'https://keybase.io/'
+  # - icon: comments
+  #   icon_pack: fas
+  #   name: Discuss on Forum
+  #   link: 'https://discourse.gohugo.io'
 
 # Site header
 
@@ -68,7 +76,7 @@ highlight: true
 highlight_languages:
   - Julia
 math: false
-diagram: true
+diagram: false
 privacy_pack: false
 edit_page:
   repo_url: ''
@@ -90,10 +98,10 @@ section_pager: false
 docs_section_pager: true
 sharing: true
 copyright_license:
-  enable: false
-  allow_derivatives: false
+  enable: true
+  allow_derivatives: true
   share_alike: true
-  allow_commercial: false
+  allow_commercial: true
   notice: 'This work is licensed under {license}'
 abstract_length: 135
 plugins_js: []

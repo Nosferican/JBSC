@@ -6,8 +6,11 @@ widget: experience
 # This file represents a page section.
 headless: true
 
+# Activate this widget? true/false
+active: true
+
 # Order that this section appears on the page.
-weight: 6
+weight: 5
 
 title: Experience
 subtitle:
@@ -34,7 +37,7 @@ experience:
     description: |2-
         Working on topics related to the digital economy and measuring intangible assets (e.g., open-source software, data).
 
-        Supervisor: [Dylan Rassier, PhD](https://www.bea.gov/research/meet-the-researchers/dylan-rassier)
+        Supervisor: [Dylan G. Rassier, PhD](https://www.bea.gov/research/meet-the-researchers/dylan-rassier)
   
   - title: Postdoctoral Research Associate
     company: University of Virginia
@@ -49,7 +52,7 @@ experience:
         Worked on multiple projects with federal and state agencies helping them meet their missions. These included:
 
         - Sponsor: National Center for Science and Engineering Statistics ([NCSES](https://www.nsf.gov/statistics/))
-          - Measuring the Scope and Impact of Open Source Software
+          - [Measuring the Scope and Impact of Open Source Software](https://opensourcesoftware.netlify.app/overview)
           - [Skilled Technical Workforce](https://biocomplexity.virginia.edu/project/skilled-technical-workforce)
         - Sponsor: Defense Advanced Research Projects Agency (DARPA)
           - Computational Simulation of Online Social Behavior ([SocialSim]((https://www.darpa.mil/program/computational-simulation-of-online-social-behavior)))
@@ -70,9 +73,10 @@ experience:
     company_logo: pumas-ai
     logo_width: 75px
     logo_height: 75px
-    location: Baltimore, MD
+    location: Remote
     date_start: '2018-08-14'
-    date_end: '2020-12-31'
+    date_end: ''
+    # date_end: '2020-12-31'
     description: |2-
         
         Developed the module for bioequivalence (BE) analysis in the Pumas ecosystem. This included the design, implementation, testing, documentation, maintanence, and coordination with the other components of the ecosystem.
@@ -131,9 +135,10 @@ experience:
     company: Res-Intel
     company_url: 'https://res-intel.com'
     company_logo: resintel
-    logo_width: 75px
-    logo_height: 75px
-    location: Portland, OR
+    logo_width: 150px
+    logo_height: 100px
+    location: Remote
+    # location: Portland, OR
     date_start: '2016-09-13'
     date_end: '2018-08-01'
     description: |2-
@@ -144,7 +149,7 @@ experience:
 
         <br>
 
-        Supervisor: [Hal Nelson, PhD](https://www.pdx.edu/public-administration/profile/hal-nelson)
+        Supervisor: [Hal T. Nelson, PhD](https://www.pdx.edu/public-administration/profile/hal-nelson)
   
   - title: Teaching Assistant
     company: Johns Hopkins University
@@ -162,17 +167,17 @@ experience:
   
   - title: Research Assistant
     company: Center for Neuroeconomics Studies
-    company_url: 'http://neuroeconomicstudies.org'
+    company_url: 'https://neuroeconomicstudies.org'
     company_logo: cns
-    logo_width: 75px
-    logo_height: 75px
+    logo_width: 300px
+    logo_height: 250px
     location: Claremont, CA
     date_start: '2014-09-08'
     date_end: '2015-05-15'
     description: |2-
         Assisted the data collection and analysis of several experiments. Some tasks included recruitment, training, running experiments (human and animal subjects). Some of the methods for the data collection and analysis included computer laboratory experiments, drug studies (e.g., alcohol, testosterone), biometric research such as electroencephalogram (EGG) and electrocardiogram (ECG), eye-tracking, and blood work. Several of the tools used included z-Tree and  iMotions-BIOPAC.
 
-        Supervisor: [Paul J. Zak, PhD](http://pauljzak.com)
+        Supervisor: [Paul Joseph Zak, PhD](http://pauljzak.com)
   
   - title: Intern
     company: Sapientis

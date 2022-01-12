@@ -4,7 +4,7 @@ title: Measuring the Cost of Open Source Software Innovation on GitHub
 event: Allied Social Science Association (ASSA) 2021
 event_url: https://www.aeaweb.org/conference
 
-location: Boston, MA
+location: Remote
 address:
   street: 39 Dalton St
   city: Boston
@@ -17,8 +17,10 @@ abstract: Open source software (OSS) is software that anyone can study, inspect,
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2022-01-07T00:00:00-04:00"
-date_end: "2022-01-09T00:00:00-04:00"
+# date: "2022-01-07T15:45:00-04:00" "America/New_York"
+date: "2022-01-07T15:45:00 America/New_York"
+# date_end: "2022-01-09T17:45:00-04:00"
+date_end: "2022-01-09T17:45:00 America/New_York"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
