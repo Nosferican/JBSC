@@ -1,10 +1,10 @@
 ---
-title: "Valuing the U.S. Data Economy using Machine Learning and Online Job Postings: Implications for Measured Production and Productivity"
+title: "Valuing the U.S. Data Economy Using Machine Learning and Online Job Postings"
 
 event: CRIW Conference on Technology, Productivity, and Economic Growth, Spring 2022
 event_url: https://www.nber.org/conferences/criw-conference-technology-productivity-and-economic-growth-spring-2022
 
-location: Washington, DC
+location: Washington, DC | Virtual (Zoom | YouTube)
 # address:
 #   street: 8 John Adam St, WC2N 6EZ, Covent Garden
 #   city: London
@@ -13,28 +13,22 @@ location: Washington, DC
 #   country: United Kingdom
 
 summary: NBER CRIW
-abstract: "The current global efforts for revising the System of National Accounts have identified valuing and recording data as a high-priority area. The emergence and growth of data-enhanced and data-enabled businesses such as online platforms have contributed to the status of data as a vital asset in modern economies. These ongoing efforts include developing a taxonomy to identify the scope of data assets, measure them, and incorporate them into the national accounts (OECD 2021). Current guidance encourages national statistical offices to explore and share potential methods, estimates, and conceptual bases used in these efforts.
-
-The Bureau of Economic Analysis has applied an unsupervised machine learning algorithm to estimate the labor costs of data-related activities using online job advertisements. Our method augments the traditional labor costs methodology by proxying time-use factors using only the language in job postings text. Using this method, we estimate data-related (nominal) labor costs grew from $100 billion in 2010 to more than $200 billion in 2018, representing an average annual growth rate of 9.7 percent.
-
-The occupations' time-use factors can be decomposed into two components: (1) the average share of time allocated to data-relevant tasks and (2) the share of employees engaging in those job activities. Using Burning Glass Technologies (BGT) job advertisement data, we identify which skills in the BGT taxonomy are *data-related* as relevant to data entry, storage, analysis, or management. We identify occupations with the highest rate of job openings containing *data-related* skills. The top occupations are denoted as *known* data-intensive occupations and serve as *landmark* occupations (e.g., statisticians). A doc2vec model is trained on the job advertisement text for each occupation to obtain a high-dimensional representation of what the occupation-level job postings convey. Using this numerical representation, we can obtain occupation-level pair-wise distances to measure how *close* or similar an occupation is to the *known* data-intensive occupations. The product of the similarity to a landmark measure and the ratio of job openings with identified *data-relevant* activities serves as the proxy of the occupation-level time-use factor. The BGT data also allow us to estimate and adjust for overlap with other intellectual property products currently captured in the U.S. national accounts as capital formation, including own-account software and own-account R&D.
-
-If incorporated into the U.S. national accounts, data as an asset would amount to expanding the production boundary as part of the own-account software and databases category of intellectual property products, which currently excludes the value of the embedded information content (i.e., data). Given the relative size and growth of a complete cost estimate for data as an asset, this paper will build stocks of data as an asset and analyze implications for the U.S. measured production and productivity."
+abstract: "With the recent proliferation of data collection and uses in the digital economy, the understanding and statistical treatment of data stocks and flows is of interest among compilers and users of national economic accounts. In this paper, we measure the value of own-account data stocks and flows for the U.S. business sector by summing the production costs of data-related activities implicit in occupations. Our method augments the traditional sum-of-costs methodology for measuring other own-account intellectual property products in national economic accounts by proxying occupation-level time-use factors using a machine learning model and the text of online job advertisements. In our experimental estimates, we find that annual current-dollar investment in own-account data assets for the U.S. business sector grew from $82.6 billion in 2003 to $159.5 billion in 2020, with an average annual growth rate of 3.9 percent. Cumulative current-dollar investment for the period 2003–2020 was $2.1 trillion. In addition to annual currentdollar investment, we present historical-cost net stocks, real growth rates, and effects on value-added by industrial sector."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2022-03-17T00:00:00-04:00"
-date_end: "2022-03-18T00:00:00-04:00"
+date: "2022-03-17T14:15:00-04:00"
+date_end: "2022-03-18T15:05:00-04:00"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2017-01-01T00:00:00Z"
+# publishDate: "2017-01-01T00:00:00Z"
 
-authors: ["José Bayoán Santiago Calderón", "Dylan Rassier"]
+authors: ["José Bayoán Santiago Calderón", "Dylan G. Rassier"]
 tags: []
 
 # Is this a featured talk? (true/false)
-featured: false
+featured: true
 
 # image:
 #   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
@@ -46,9 +40,9 @@ featured: false
 #   name: Follow
 #   url: https://twitter.com/georgecushen
 # url_code: ""
-# url_pdf: ""
-# url_slides: ""
-# url_video: ""
+url_pdf: "https://conference.nber.org/conf_papers/f159271/f159271.pdf"
+url_slides: "https://conference.nber.org/conf_papers/f159271/f159271.slides.pdf"
+url_video: "https://youtu.be/R-JBbO9Ae3Y?t=19131"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
