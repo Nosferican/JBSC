@@ -91,7 +91,7 @@ I had interviews with IDA, MITRE, BEA, AMZ, and UVA.
   - [Haleh Vafaie](https://www.linkedin.com/in/haleh-vafaie-7b25442/)
   - [James Glasbrenner](https://www.linkedin.com/in/jkglasbrenner/)
 - BEA
-  - [Dylan Rassier](https://www.bea.gov/research/meet-the-researchers/dylan-rassier)
+  - [Dylan G. Rassier](https://www.bea.gov/research/meet-the-researchers/dylan-rassier)
   - [Baoline Chen](https://www.bea.gov/research/meet-the-researchers/baoline-chen)
   - [Takashi Yamashita](https://www.bea.gov/research/meet-the-researchers/takashi-yamashita)
 - UVA
