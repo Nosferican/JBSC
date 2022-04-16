@@ -12,7 +12,7 @@ location: Virtual (Zoom)
 #   postcode: '94305'
 #   country: United States
 
-summary: Government Advances in Statistical Programming (GASP) 2020
+summary: GASP
 abstract: "A vital component of open government is access to information that allows voters to make informed choices. Puerto Rico has an upcoming general election for which the Electoral Board has published the model ballots as PDF, but no machine-readable format is available. The lack of machine-readable files makes it hard for the citizenship to develop tools for voter information and link the data to other datasets such as political contributions.
 
 This presentation will feature a case study of obtaining the PR 2020 general election model ballots in PDF and extracting the desired information using optical character recognition (OCR). In addition, I will showcase the available ecosystem for related functionality such as interacting with API (e.g., REST/GraphQL), web driver (i.e., websites using JavaScript), I/O, and databases. The snap view of the ecosystem stems from my experience as an user, developer, and maintainer, including developing statistical software and analysis for successful FDA submissions, agent-based models for DARPA challenges, and web harvesting projects at scale as part of collaborations with NCSES using the Julia language."
@@ -44,7 +44,7 @@ featured: true
 # url_code: ""
 # url_pdf: ""
 # url_slides: ""
-# url_video: ""
+url_video: "https://www.youtube.com/watch?v=46onb1YG33k&t=2893s"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

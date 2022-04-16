@@ -2,7 +2,7 @@
 title: Measuring the Cost and Impact of Open Source Software as Intangible Capital
 
 event: FCSM Computational Statistics and the Production of Official Statistics Webinar on Blended Data
-event_url: https://nces.ed.gov/fcsm/CSPOS_Blended_Data.asp
+event_url: https://www.eventbrite.com/e/fcsm-cspos-webinar-on-blended-data-tickets-103262105738
 
 location: Virtual
 # address:
@@ -42,7 +42,7 @@ featured: true
 # url_code: ""
 # url_pdf: ""
 # url_slides: ""
-# url_video: ""
+url_video: "https://youtu.be/46onb1YG33k?t=2770"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

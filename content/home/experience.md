@@ -83,7 +83,7 @@ experience:
 
         Assisted the consulting branch working on various projects for our clients.
 
-        Supervisor: [Vijay Ivaturi, PhD](https://pumas.ai/company/about-us#team)
+        Supervisor: [Ayyappa Chaturvedula, Ph.D., F.C.P.](https://pumas.ai/company/about-us#team), former supervisor [Vijay Ivaturi, PhD](https://pumas.ai/company/about-us#team)
   
   - title: Research Assistant
     company: QuantEcon

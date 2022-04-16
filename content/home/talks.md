@@ -12,14 +12,14 @@ active: true
 # Order that this section appears on the page.
 weight: 4
 
-title: 'Recent & Upcoming Talks'
+title: 'Selected Talks'
 subtitle:
 
 content:
   # Page type to display. E.g. post, event, publication...
   page_type: event
   # Choose how many pages you would like to display (0 = all pages)
-  count: 5
+  count: 0
   # Filter on criteria
   filters:
     author: "José Bayoán Santiago Calderón"
@@ -40,5 +40,5 @@ design:
   #   2 = Compact
   #   3 = Card
   #   4 = Citation (publication only)
-  view: 2
+  view: 1
 ---

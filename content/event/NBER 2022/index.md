@@ -1,5 +1,5 @@
 ---
-title: "Valuing the U.S. Data Economy Using Machine Learning and Online Job Postings"
+title: "Valuing the U.S. Data Economy Using Machine Learning and Online Job Postings (NBER|CRIW)"
 
 event: CRIW Conference on Technology, Productivity, and Economic Growth, Spring 2022
 event_url: https://www.nber.org/conferences/criw-conference-technology-productivity-and-economic-growth-spring-2022

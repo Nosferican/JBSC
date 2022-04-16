@@ -2,7 +2,7 @@
 title: "The Scope and Impact of Open Source Software as Intangible Capital: A Framework for Measurement with an Application Based on the Use of R Packages"
 
 event: Government Advances in Statistical Programming (GASP!) Workshop
-event_url: https://nces.ed.gov/FCSM/GASP_Workshop.asp
+event_url: https://www.eventbrite.com/e/government-advances-in-statistical-programming-gasp-workshop-tickets-65497325263#
 
 location: Bureau of Labor Statistics
 address:
@@ -12,7 +12,7 @@ address:
   postcode: '20212'
   country: United States
 
-summary: "Government Advances in Statistical Programming (GASP!) Workshop"
+summary: "GASP"
 abstract: "Open source software allows free access to digital tools and constitutes a part of intangible investment with the qualities of public goods. Open source software (OSS) provides users with an unknown amount of freely modifiable software tools and other useful products; they are created both within the business sector and outside of it. Better accounting for the contribution of public spending to investments in OSS, a vital component of science activity, motivates this paper. We develop a bottom-up approach to document the scope and impact of OSS created by all sectors of the economy by collecting data on OSS languages R and Python, as well as from the Federal Government's Code.gov."
 
 # Talk start and end times.
@@ -24,7 +24,7 @@ all_day: false
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00Z"
 
-authors: ["José Bayoán Santiago Calderón"]
+authors: ["José Bayoán Santiago Calderón", "Gizem Korkmaz", "Carol A. Robbins", "Aaron D. Schroeder", "Stephanie S. Shipp", "Sallie A. Keller"]
 tags: []
 
 # Is this a featured talk? (true/false)
@@ -42,7 +42,7 @@ featured: true
 # url_code: ""
 # url_pdf: ""
 # url_slides: ""
-# url_video: ""
+url_video: "https://youtu.be/xNQr9kCDJvo?t=2813"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -59,5 +59,3 @@ featured: true
 # projects:
 # - example
 ---
-
-Presentation is accesible through the YouTube [archive](https://youtube.com/playlist?list=PLqsWXJV2Utrf6Yq7fhef8p4piM8M-ZTK3).
