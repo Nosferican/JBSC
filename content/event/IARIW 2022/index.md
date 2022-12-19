@@ -37,7 +37,7 @@ authors: ["José Bayoán Santiago Calderón", "Dylan G. Rassier"]
 tags: []
 
 # Is this a featured talk? (true/false)
-featured: false
+featured: true
 
 # image:
 #   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
@@ -49,7 +49,7 @@ featured: false
 #   name: Follow
 #   url: https://twitter.com/georgecushen
 # url_code: ""
-# url_pdf: "https://iariw.org/wp-content/uploads/2022/02/Proposal-Calderon.pdf"
+url_pdf: "https://iariw.org/iariw-37th-general-conference-luxembourg-august-22-26-2022/"
 # url_slides: ""
 # url_video: ""
 

@@ -40,7 +40,7 @@ featured: true
 #   name: Follow
 #   url: https://twitter.com/georgecushen
 # url_code: ""
-url_pdf: "https://mega.nz/file/aYdCUCiT#474AQYB4E71X59dNlHVaCTL-GuPsOIjntyLQ25_nHUo"
+url_pdf: "https://www.bea.gov/research/papers/2022/measuring-cost-open-source-software-innovation-github"
 # url_slides: ""
 # url_video: ""
 

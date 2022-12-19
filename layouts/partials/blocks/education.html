@@ -1,0 +1,55 @@
+{{/* Wowchemy Blocks: Education */}}
+{{/* Documentation: https://wowchemy.com/blocks/ */}}
+{{/* License: https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/LICENSE.md */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $columns := $block.design.columns | default "1" }}
+
+
+<!-- Education widget -->
+<div class="row">
+  <div class="col-md-4">
+    <h1 class="mb-0">{{ i18n $block.content.title | markdownify | emojify }}</h1>
+  </div>
+  <div class="col-md-8">
+    {{ with $block.Content }}{{ . }}{{ end }}
+
+    {{ if $block.content.items }}
+    {{ range $idx, $key := sort $block.content.items ".date_start" "desc" }}
+    <div class="card education course">
+      <div class="card-body">
+        {{- $svg_icon := resources.Get (printf "media/icons/brands/%s.svg" (replace (lower .institution_logo) " " "_"))
+        -}}
+        {{- if $svg_icon }}
+        <div class="d-flex align-content-start">
+          <div class="mr-2 mb-2">
+            <a href="{{ .institution_url }}" target="_blank" rel="noopener">
+              <img src="{{ $svg_icon.RelPermalink }}" width="60px" height="60px" alt="{{.institution_name | plainify}}"
+                loading="lazy">
+            </a>
+          </div>
+          <div>
+            {{ end }}
+
+            <div class="course">{{.degree | markdownify | emojify}}
+              <span class="middot-divider"></span>
+              {{.year}}
+            </div>
+
+            <div class="course">
+              {{.institution_name | markdownify | emojify}}
+              <br>
+              <div> {{.notes | markdownify | emojify}} </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {{end}}
+      {{end}}
+    </div>
+  </div>
+</div>
+</div>
