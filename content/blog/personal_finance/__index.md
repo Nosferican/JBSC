@@ -17,7 +17,8 @@ type: docs  # Do not modify.
 # - name: Declare this menu item as a parent with ID `name`.
 # - weight: Position of link in menu.
 menu:
-  - name: personal_finance
+  - name: personal_finance_20
+  - name: personal_finance_19
 ---
 
 Thoughts and recommendations on personal finance and evaluating job offers.

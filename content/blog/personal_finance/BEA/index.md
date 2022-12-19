@@ -1,5 +1,5 @@
 ---
-title: Personal Finance (Money Journal)
+title: Personal Finance (2021)
 linktitle: Personal Finance
 toc: true
 type: docs
@@ -7,7 +7,7 @@ draft: false
 date: "2021-12-31"
 lastmod: "2021-12-31"
 menu:
-  personal_finance:
+  personal_finance_20:
     weight: 1
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)

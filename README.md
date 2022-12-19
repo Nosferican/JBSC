@@ -6,4 +6,4 @@ This repository has the source code for https://jbsc.netlify.app/
 
 # Tools
 
-The website uses the [Academic Kickstart](https://themes.gohugo.io/theme/academic/) template for [Hugo](https://gohugo.io/) and it is delivered using [Netlify](https://www.netlify.com/).
+The website uses the [Academic Kickstart](https://github.com/wowchemy/starter-hugo-academic) template for [Hugo](https://gohugo.io/) and it is delivered using [Netlify](https://www.netlify.com/).

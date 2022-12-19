@@ -7,6 +7,10 @@
   color: rgba(0, 119, 181, 1);
 }
 
+.fa-facebook {
+  color: rgba(66, 103, 178, 1);
+}
+
 .fa-mastodon {
   color: rgba(86, 58, 204, 1);
 }
@@ -16,7 +20,7 @@
 }
 
 .fa-github {
-  color: rgba(64, 120, 192, 1);
+  mix-blend-mode: hard-light;
 }
 
 .fa-envelope {
