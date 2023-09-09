@@ -150,7 +150,24 @@ sections:
               Working on topics related to the digital economy and measuring intangible assets (e.g., open-source software, data).
 
               Supervisor: [David Wasshausen](https://www.bea.gov/about/leadership/ad-national-accounts)
-  
+
+        - title: Senior Scientist II · Contract
+          company: Pumas-AI, Inc.
+          company_url: 'http://pumas.ai'
+          company_logo: pumas-ai_light
+          logo_width: 200px
+          logo_height: 100px
+          location: Remote
+          date_start: '2018-08-14'
+          date_end: ''
+          # date_end: '2020-12-31'
+          description: |2-
+              Developed the module for bioequivalence (BE) analysis in the Pumas ecosystem. This included the design, implementation, testing, documentation, maintanence, and coordination with the other components of the ecosystem.
+
+              Assisting the consulting branch working on various projects for our clients.
+
+              Supervisor: [Joga Gobburu, PhD](https://pumas.ai/company/about-us)
+
         - title: Postdoctoral Research Associate · Full-time
           company: University of Virginia
           company_url: 'https://biocomplexity.virginia.edu'
@@ -176,23 +193,6 @@ sections:
               Served as project lead and instructor for the Data Science for the Public Good Young Scholars Program ([DSPG](https://biocomplexity.virginia.edu/institute/divisions/social-and-decision-analytics/dspg)).
        
               Supervisor: [Sallie Ann Keller, PhD](https://biocomplexity.virginia.edu/person/sallie-keller)
- 
-        - title: Senior Scientist II · Contract
-          company: Pumas-AI, Inc.
-          company_url: 'http://pumas.ai'
-          company_logo: pumas-ai
-          logo_width: 75px
-          logo_height: 75px
-          location: Remote
-          date_start: '2018-08-14'
-          date_end: ''
-          # date_end: '2020-12-31'
-          description: |2-
-              Developed the module for bioequivalence (BE) analysis in the Pumas ecosystem. This included the design, implementation, testing, documentation, maintanence, and coordination with the other components of the ecosystem.
-
-              Assisted the consulting branch working on various projects for our clients.
-
-              Supervisor: [Beatriz Guglieri López, PhD](https://pumas.ai/company/about-us)
   
         - title: Research Assistant · Contract
           company: QuantEcon
