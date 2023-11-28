@@ -7,21 +7,21 @@ main:
   - name: Home
     url: '#about'
     weight: 1
-  - name: Education
-    url: '#education'
-    weight: 2
+  # - name: Education
+  #   url: '#education'
+  #   weight: 2
   - name: Skills
-    url: '#skills'
+    url: '#section-skills'
+    weight: 2
+  - name: Experience
+    url: '#section-experience'
     weight: 3
   - name: Publications
-    url: '#featured'
+    url: '#publications'
     weight: 4
-  - name: Talks
-    url: '#talks'
-    weight: 5
-  - name: Experience
-    url: '#experience'
-    weight: 6
+  # - name: Talks
+  #   url: '#talks'
+  #   weight: 5
   - name: Certificates
     url: '#certificates'
     weight: 7

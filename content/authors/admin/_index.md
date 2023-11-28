@@ -1,6 +1,9 @@
 ---
 # Display name
-title: J Bayoán Santiago Calderón
+title: J. Bayoán Santiago Calderón
+
+# Name pronunciation (optional)
+name_pronunciation:
 
 # Full name (for SEO)
 first_name: José Bayoán
@@ -8,7 +11,7 @@ last_name: Santiago Calderón
 
 # Status emoji
 status:
-  icon:
+  icon: ☕️
 
 # Is this the primary user of the site?
 superuser: true
@@ -19,7 +22,8 @@ role: Research Economist
 # Organizations/Affiliations to show in About widget
 organizations:
   - name: Bureau of Economic Analysis
-    url: https://bea.gov
+    url: https://bea.gov/
+
 # Short bio (displayed in user profile at end of posts)
 bio: 🇵🇷 Economist by training. Data scientist / software developer by accident.
 
@@ -50,49 +54,105 @@ education:
     url: https://www.southwestern.edu
     year: 2014
 
+# Skills
+# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
+skills:
+  - name: Technical
+    items:
+      - name: Statistics, Data Science, Machine Learning
+        description: Regression Analysis<br>Econometrics<br>Scalable Data Analysis
+        icon: chart-line
+        icon_pack: fas
+        percent: 90
+      - name: Programming
+        description: Julia, R, SQL, Git, Linux <br> Scientific Computing, Software Development <br> High-Performance Computing, Cloud Computing
+        icon: code
+        icon_pack: fas
+        percent: 90
+      - name: Methods
+        description: Agent-Based Modeling (ABM) <br> Social Network Analysis <br> Geographic Information Systems (GIS) <br> Text Mining, Natural Language Processing (NLP)
+        icon: tools
+        icon_pack: fas
+        percent: 75
+# skills:
+#   - name: Technical
+#     items:
+#       - name: Python
+#         description: ''
+#         percent: 80
+#         icon: python
+#         icon_pack: fab
+#       - name: Data Science
+#         description: ''
+#         percent: 100
+#         icon: chart-line
+#         icon_pack: fas
+#       - name: SQL
+#         description: ''
+#         percent: 40
+#         icon: database
+#         icon_pack: fas
+  - name: Hobbies
+    color: '#eeac02'
+    color_border: '#f0bf23'
+    items:
+      - name: My dog
+        description: 'I have a two years old doggo named Sadaharu'
+        percent: 100
+        icon: dog
+        icon_pack: fas
+      - name: Reading
+        description: 'Manga (One Piece, One Punch-Man)'
+        percent: 95
+        icon: book-open
+        icon_pack: fa
+      - name: TV Shows
+        description: 'Currently watching some animes like Spy x Family and a bunch of isekais'
+        percent: 85
+        icon: tv
+        icon_pack: fa
+      - name: Videogames <i class="fa-brands fa-steam"></i> <i class="fa-brands fa-playstation"></i>
+        description: Currently playing [Baldur's Gate III](https://baldursgate3.game/)
+        percent: 75
+        icon: gamepad
+        icon_pack: fa
+
 # Social/Academic Networking
-# For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
+# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
   - icon: envelope
     icon_pack: fas
-    link: "mailto:naoyabpr@gmail.com"
-    label: "Shoot me an email"
+    link: 'mailto:"Dr. José Bayoán Santiago Calderón"<naoyabpr@gmail.com>' # '/#contact'
   # - icon: twitter
   #   icon_pack: fab
   #   link: https://twitter.com/GeorgeCushen
   #   label: Follow me on Twitter
   #   display:
-  #     header: true
-  - icon: mastodon
-    icon_pack: fab
-    link: https://fo.llow.social/u/nosferican@econtwitter.net
-    label: Follow me on Mastodon
-    display:
-      header: true
+  #     header: false
   # - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
   #   icon_pack: fas
   #   link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/Nosferican
-    label: Follow me on GitHub
-  - icon: linkedin
-    icon_pack: fab
-    link: https://www.linkedin.com/in/jbscpr
-    label: Connect with me on LinkedIn
   - icon: "orcid"
     icon_pack: "ai"
     link: "https://orcid.org/0000-0002-8406-6175"
     label: Check out my ORCID
+  - icon: github
+    icon_pack: fab
+    link: https://github.com/Nosferican
+  - icon: linkedin
+    icon_pack: fab
+    link: https://www.linkedin.com/in/jbscpr
+  - icon: instagram
+    icon_pack: fab
+    link: https://instagram.com/Nosferican
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
   - icon: cv
     icon_pack: ai
     link: uploads/CV.pdf
-    label: Here is a copy
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'naoyabpr@gmail.com'
@@ -109,4 +169,5 @@ His research has centered on improving decision-making, emphasizing the public g
 His transdisciplinary research approach has enabled him to routinely collaborate across disciplines and develop a diverse set of domain knowledge and methodological toolset.
 He also participates in various open-source software communities (e.g., [JuliaLang](https://julialang.org/community)) and civic activism (e.g., [Code4PR](http://code4puertorico.org), [Mentes Puertorriqueñas en Accion](https://en.mentesenaccion.org/)).
 
-🇵🇷 de pura cepa. I read quite a bit of manga, manhwa & manhua as well as watching anime, donghua and KDramas. Sometimes, I even have time and energy to play some videogames. Check out the relevant profiles: [PSN Profiles](https://psnprofiles.com/Nosferican21), [MyAnimeList](https://myanimelist.net/profile/Nosferican), [MyDramaList](https://mydramalist.com/dramalist/Nosferican).
+I read quite a bit of manga, manhwa & manhua as well as watching anime, donghua and KDramas. Sometimes, I even have time and energy to play some videogames. Check out the relevant profiles: [PSN Profiles](https://psnprofiles.com/Nosferican21), [MyAnimeList](https://myanimelist.net/profile/Nosferican), [MyDramaList](https://mydramalist.com/dramalist/Nosferican).
+{style="text-align: justify;"}
