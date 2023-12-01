@@ -85,9 +85,9 @@ sections:
           date_start: '2018-08-14'
           date_end: '2023-11-30'
           description: |2-
-              My work on the strategic & scientific consulting branch included projects across multiple therapeutic areas such as rare disease, metabolic diseases, pediatrics, oncology, and vaccines. I conducted multiple clinical trial evaluations of the safety and efficacy of formulations to support drug development strategies at the company (e.g., study design, stop/go decisions, model develoment, biomarker explorations, dose selection) and regulatory process (e.g., type-C meetings).
+              My strategic & scientific consulting work included projects across multiple therapeutic areas such as rare diseases, metabolic diseases, pediatrics, oncology, and vaccines. I conducted multiple clinical trial evaluations of the safety and efficacy of formulations to support drug development strategies at the company (e.g., study design, stop/go decisions, model development, biomarker exploration, dose selection) and regulatory processes (e.g., type-C meetings).
               
-              My work in the product development team was primary the developed the module for bioequivalence (BE) analysis in the Pumas ecosystem. This included the design, implementation, testing, documentation, maintanence, and coordination with the other components of the ecosystem.
+              My work in the product development team was primarily the development of the module for bioequivalence (BE) analysis in the Pumas ecosystem. This included the design, implementation, testing, documentation, maintenance, and coordination with the other components of the ecosystem.
 
               Supervisors:
               - [Joga Gobburu, PhD](https://pumasai.com/company) (Strategic & Scientific Consulting)
