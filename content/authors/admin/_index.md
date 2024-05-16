@@ -60,12 +60,12 @@ skills:
   - name: Technical
     items:
       - name: Statistics, Data Science, Machine Learning
-        description: Regression Analysis<br>Econometrics<br>Scalable Data Analysis
+        description: Regression Analysis<br>Econometrics<br>Data Analysis
         icon: chart-line
         icon_pack: fas
         percent: 90
       - name: Programming
-        description: Julia, R, Python, SQL, Git, Linux <br> Scientific Computing, Software Development <br> High-Performance Computing, Cloud Computing
+        description: Julia, R, Python <i class="fa-brands fa-python"></i>, SQL <i class="fa-solid fa-database"></i>, Git <i class="fa-solid fa-code-branch"></i>, Linux <i class="fa-brands fa-linux"></i> <br> Scientific Computing, Software Development <br> High-Performance Computing <i class="fa-solid fa-server"></i>, Cloud Computing <i class="fa-solid fa-cloud"></i>
         icon: code
         icon_pack: fas
         percent: 90
