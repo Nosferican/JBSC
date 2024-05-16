@@ -65,7 +65,7 @@ skills:
         icon_pack: fas
         percent: 90
       - name: Programming
-        description: Julia, R, SQL, Git, Linux <br> Scientific Computing, Software Development <br> High-Performance Computing, Cloud Computing
+        description: Julia, R, Python, SQL, Git, Linux <br> Scientific Computing, Software Development <br> High-Performance Computing, Cloud Computing
         icon: code
         icon_pack: fas
         percent: 90
@@ -112,7 +112,7 @@ skills:
         icon: tv
         icon_pack: fa
       - name: Videogames <i class="fa-brands fa-steam"></i> <i class="fa-brands fa-playstation"></i>
-        description: Currently playing [Baldur's Gate III](https://baldursgate3.game/)
+        description: Currently playing [Baldur's Gate III](https://baldursgate3.game/) and [Stellaris](https://www.paradoxinteractive.com/games/stellaris/about)
         percent: 75
         icon: gamepad
         icon_pack: fa

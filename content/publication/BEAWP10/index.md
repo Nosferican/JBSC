@@ -31,12 +31,12 @@ summary:
 
 # tags:
 # - Source Themes
-featured: true
+featured: false
 
 links:
 # - name: ''
 #   url: ''
-url_pdf: 'https://www.bea.gov/research/papers/2022/measuring-cost-open-source-software-innovation-github'
+# url_pdf: 'https://www.bea.gov/research/papers/2022/measuring-cost-open-source-software-innovation-github'
 url_code: ''
 url_dataset: ''
 url_poster: ''

@@ -83,7 +83,7 @@ sections:
           logo_height: 100px
           location: Remote
           date_start: '2018-08-14'
-          date_end: '2023-11-30'
+          date_end: '2023-12-01'
           description: |2-
               My strategic & scientific consulting work included projects across multiple therapeutic areas such as rare diseases, metabolic diseases, pediatrics, oncology, and vaccines. I conducted multiple clinical trial evaluations of the safety and efficacy of formulations to support drug development strategies at the company (e.g., study design, stop/go decisions, model development, biomarker exploration, dose selection) and regulatory processes (e.g., type-C meetings).
               
