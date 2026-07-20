@@ -1,0 +1,13 @@
+{
+  "id": "focus-areas",
+  "name": "Focus Areas",
+  "version": "1.1.0",
+  "license": "MIT",
+  "category": "content",
+  "tags": ["focus-areas", "topics", "service-areas", "research-areas", "expertise", "pillars", "programs", "showcase"],
+  "description": "Display focus areas, services, programs, or research themes with rich cards, optional metrics, and multiple layouts (cards, hexagon, timeline)",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "static-site", "focus-areas", "service-areas", "research-areas", "topics", "expertise"]
+}

@@ -1,0 +1,30 @@
+# HugoBlox Font Pack
+# https://docs.hugoblox.com
+
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Geometric"
+    vendor: "hugoblox"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Bold, modern geometric sans-serif for startups and SaaS landing pages"
+
+  families:
+    heading: "Montserrat"
+    body: "Poppins"
+    code: "JetBrains Mono"
+
+  weights:
+    heading: [600, 700, 800]
+    body: [300, 400, 500, 600]
+    code: [400]
+
+  leading:
+    heading: 1.15
+    body: 1.6
+    code: 1.5
+
+  tracking:
+    heading: "-0.01em"
+    body: "0"

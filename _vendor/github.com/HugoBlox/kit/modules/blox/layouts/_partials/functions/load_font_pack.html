@@ -1,0 +1,65 @@
+{{/*
+  HugoBlox Theme Engine: Loads and validates a HugoBlox font pack
+  
+  Input: Font pack name (string), e.g. "modern-sans" or "acme/editorial"
+  
+  Returns: The font pack data object (families, weights, sizes, leading, tracking) or empty dict if invalid
+  
+  Validates:
+    - Font pack exists in data/fonts/
+    - Required 'hugoblox' wrapper is present
+    - Required 'meta.format' starts with 'hugoblox-font@'
+*/}}
+
+{{ $pack_name := . }}
+{{ $result := dict }}
+
+{{/* Parse vendor/name format */}}
+{{ $vendor := "" }}
+{{ $name := $pack_name }}
+
+{{ if strings.Contains $pack_name "/" }}
+  {{ $parts := split $pack_name "/" }}
+  {{ $vendor = index $parts 0 }}
+  {{ $name = index $parts 1 }}
+{{ end }}
+
+{{/* Load raw font pack data */}}
+{{ $raw_pack := dict }}
+
+{{ if $vendor }}
+  {{/* Third-party font pack: data/fonts/vendor/name.yaml */}}
+  {{ $vendor_fonts := index hugo.Data.fonts $vendor }}
+  {{ if $vendor_fonts }}
+    {{ $raw_pack = index $vendor_fonts $name }}
+  {{ end }}
+{{ else }}
+  {{/* Built-in or user font pack: data/fonts/name.yaml */}}
+  {{ with index hugo.Data.fonts $name }}
+    {{ $raw_pack = . }}
+  {{ end }}
+{{ end }}
+
+{{/* Validate font pack structure */}}
+{{ if not $raw_pack }}
+  {{ warnf "FONT PACK ERROR: Font pack '%s' not found in data/fonts/" $pack_name }}
+{{ else if not $raw_pack.hugoblox }}
+  {{ warnf "FONT PACK ERROR: Font pack '%s' is not a valid HugoBlox font pack (missing 'hugoblox' key)" $pack_name }}
+{{ else }}
+  {{ $pack := $raw_pack.hugoblox }}
+
+  {{ if not $pack.meta }}
+    {{ warnf "FONT PACK ERROR: Font pack '%s' is missing the required 'meta' block" $pack_name }}
+  {{ else }}
+    {{/* Validate format version */}}
+    {{ $format := $pack.meta.format | default "" }}
+    {{ if not (hasPrefix $format "hugoblox-font@") }}
+      {{ warnf "FONT PACK ERROR: Font pack '%s' has invalid format '%s'. Expected 'hugoblox-font@1'" $pack_name $format }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Return the validated font pack data (without the hugoblox wrapper) */}}
+  {{ $result = $pack }}
+{{ end }}
+
+{{ return $result }}

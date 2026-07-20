@@ -1,0 +1,22 @@
+module:
+  mounts:
+    - source: assets
+      target: assets
+    - source: layouts
+      target: layouts
+
+outputFormats:
+  Present:
+    mediaType: text/html
+    baseName: index
+    isHTML: true
+    permalinkable: true
+    path: present
+
+cascade:
+  - target:
+      path: "/slides/**"
+      kind: "page"
+    outputs:
+      - HTML
+      - Present

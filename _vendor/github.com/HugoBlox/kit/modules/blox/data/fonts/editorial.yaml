@@ -1,0 +1,36 @@
+# HugoBlox Font Pack
+# https://docs.hugoblox.com
+
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Editorial"
+    vendor: "hugoblox"
+    version: "1.0.0"
+    license: "MIT"
+    style: "serif"
+    description: "Elegant serif pairing for magazines, blogs, and long-form content"
+
+  families:
+    heading: "Playfair Display"
+    body: "Merriweather"
+    code: "Source Code Pro"
+
+  weights:
+    heading: [600, 700, 800]
+    body: [300, 400, 700]
+    code: [400]
+
+  leading:
+    heading: 1.15
+    body: 1.7
+    code: 1.5
+
+  tracking:
+    heading: "-0.01em"
+    body: "0"
+
+  variable:
+    heading: true
+    body: false
+    code: false

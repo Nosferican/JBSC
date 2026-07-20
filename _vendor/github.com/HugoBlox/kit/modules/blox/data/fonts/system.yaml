@@ -1,0 +1,30 @@
+# HugoBlox Font Pack
+# https://docs.hugoblox.com
+
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "System"
+    vendor: "hugoblox"
+    version: "1.0.0"
+    license: "MIT"
+    description: "System fonts only — zero network requests, maximum performance"
+
+  families:
+    heading: "system-sans"
+    body: "system-sans"
+    code: "system-mono"
+
+  weights:
+    heading: [600, 700]
+    body: [400, 500]
+    code: [400]
+
+  leading:
+    heading: 1.2
+    body: 1.6
+    code: 1.5
+
+  tracking:
+    heading: "-0.02em"
+    body: "0"

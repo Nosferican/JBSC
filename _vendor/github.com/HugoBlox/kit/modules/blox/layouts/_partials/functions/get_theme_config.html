@@ -1,0 +1,165 @@
+{{/*
+  HugoBlox Theme Engine: Get theme configuration (v2)
+  
+  Returns a dict with:
+    - mode: 'light' | 'dark' | 'system'
+    - light: Light theme pack name (default: "default")
+    - dark: Dark theme pack name (default: "default")
+    - colors: Global color overrides { primary, secondary, neutral }
+    - colors_light: Light-mode specific color overrides
+    - colors_dark: Dark-mode specific color overrides
+    - surfaces: Semantic surface colors { background, foreground, header, footer }
+    - typography: { font, size }
+    - layout: { radius, spacing }
+*/}}
+
+{{/* v2 structure */}}
+{{ $hb := site.Params.hugoblox | default dict }}
+{{ $hb_theme := $hb.theme | default dict }}
+
+{{/* ═══════════════════════════════════════════════════════════════════════════
+    MODE (light/dark/system)
+═══════════════════════════════════════════════════════════════════════════ */}}
+{{ $mode := $hb_theme.mode | default "system" }}
+
+{{/* ═══════════════════════════════════════════════════════════════════════════
+    THEME PACK SELECTION (light/dark)
+    
+    Pack can be:
+      - String: "default" (applies to both)
+      - Object: { light: "latte", dark: "americano" }
+═══════════════════════════════════════════════════════════════════════════ */}}
+{{ $light_pack := "default" }}
+{{ $dark_pack := "default" }}
+
+{{ $pack := $hb_theme.pack | default "default" }}
+{{ if reflect.IsMap $pack }}
+  {{ $light_pack = $pack.light | default "default" }}
+  {{ $dark_pack = $pack.dark | default "default" }}
+{{ else }}
+  {{/* Single string applies to both */}}
+  {{ $light_pack = $pack }}
+  {{ $dark_pack = $pack }}
+{{ end }}
+
+{{/* ═══════════════════════════════════════════════════════════════════════════
+    COLOR OVERRIDES
+═══════════════════════════════════════════════════════════════════════════ */}}
+{{ $colors := $hb_theme.colors | default dict }}
+{{ $colors_light := $hb_theme.colors_light | default dict }}
+{{ $colors_dark := $hb_theme.colors_dark | default dict }}
+
+{{/* ═══════════════════════════════════════════════════════════════════════════
+    SEMANTIC SURFACE COLORS
+═══════════════════════════════════════════════════════════════════════════ */}}
+{{ $surfaces := $hb_theme.surfaces | default dict }}
+
+{{/* ═══════════════════════════════════════════════════════════════════════════
+    TYPOGRAPHY
+    
+    Font packs are loaded from data/fonts/ and provide:
+      - families: { heading, body, code, nav }
+      - weights: { heading, body, code, nav } (arrays)
+      - sizes: { base, sm, lg }
+      - leading: { heading, body, code }
+      - tracking: { heading, body, caps }
+    
+    Legacy support: typography.font (sans/serif/native) maps to pack names
+═══════════════════════════════════════════════════════════════════════════ */}}
+{{ $hb_typography := $hb.typography | default dict }}
+
+{{/* Resolve font pack name */}}
+{{ $font_pack_name := $hb_typography.pack | default "modern" }}
+
+{{/* Load the font pack */}}
+{{ $font_pack := partial "functions/load_font_pack" $font_pack_name }}
+
+{{/* Resolve families — inline overrides take priority */}}
+{{ $pack_families := $font_pack.families | default dict }}
+{{ $inline_families := $hb_typography.families | default dict }}
+{{ $families := dict
+    "heading" ($inline_families.heading | default $pack_families.heading | default "Inter")
+    "body" ($inline_families.body | default $pack_families.body | default "Inter")
+    "code" ($inline_families.code | default $pack_families.code | default "JetBrains Mono")
+    "nav" ($inline_families.nav | default $pack_families.nav | default "")
+}}
+
+{{/* Resolve weights — inline overrides take priority */}}
+{{ $pack_weights := $font_pack.weights | default dict }}
+{{ $inline_weights := $hb_typography.weights | default dict }}
+{{ $weights := dict
+    "heading" ($inline_weights.heading | default $pack_weights.heading | default (slice 700))
+    "body" ($inline_weights.body | default $pack_weights.body | default (slice 400))
+    "code" ($inline_weights.code | default $pack_weights.code | default (slice 400))
+    "nav" ($inline_weights.nav | default $pack_weights.nav | default (slice))
+}}
+
+{{/* Resolve sizes — inline overrides take priority */}}
+{{ $pack_sizes := $font_pack.sizes | default dict }}
+{{ $inline_sizes := $hb_typography.sizes | default dict }}
+{{ $sizes := dict
+    "base" ($inline_sizes.base | default $pack_sizes.base | default "1rem")
+    "sm" ($inline_sizes.sm | default $pack_sizes.sm | default "0.875rem")
+    "lg" ($inline_sizes.lg | default $pack_sizes.lg | default "1.125rem")
+}}
+
+{{/* Resolve leading (line-height) */}}
+{{ $pack_leading := $font_pack.leading | default dict }}
+{{ $inline_leading := $hb_typography.leading | default dict }}
+{{ $leading := dict
+    "heading" ($inline_leading.heading | default $pack_leading.heading | default 1.2)
+    "body" ($inline_leading.body | default $pack_leading.body | default 1.6)
+    "code" ($inline_leading.code | default $pack_leading.code | default 1.5)
+}}
+
+{{/* Resolve tracking (letter-spacing) */}}
+{{ $pack_tracking := $font_pack.tracking | default dict }}
+{{ $inline_tracking := $hb_typography.tracking | default dict }}
+{{ $tracking := dict
+    "heading" ($inline_tracking.heading | default $pack_tracking.heading | default "-0.02em")
+    "body" ($inline_tracking.body | default $pack_tracking.body | default "0")
+    "caps" ($inline_tracking.caps | default $pack_tracking.caps | default "0.05em")
+}}
+
+{{/* Resolve variable font flags */}}
+{{ $pack_variable := $font_pack.variable | default dict }}
+{{ $inline_variable := $hb_typography.variable | default dict }}
+{{ $variable := dict
+    "heading" ($inline_variable.heading | default $pack_variable.heading | default false)
+    "body" ($inline_variable.body | default $pack_variable.body | default false)
+    "code" ($inline_variable.code | default $pack_variable.code | default false)
+    "nav" ($inline_variable.nav | default $pack_variable.nav | default false)
+}}
+
+{{ $typography := dict
+    "pack" $font_pack_name
+    "style" ($font_pack.meta.style | default "sans")
+    "families" $families
+    "weights" $weights
+    "variable" $variable
+    "sizes" $sizes
+    "leading" $leading
+    "tracking" $tracking
+}}
+
+{{/* ═══════════════════════════════════════════════════════════════════════════
+    LAYOUT TOKENS
+═══════════════════════════════════════════════════════════════════════════ */}}
+{{ $hb_layout := $hb.layout | default dict }}
+{{ $layout := dict 
+    "radius" ($hb_layout.radius | default "md")
+    "spacing" ($hb_layout.spacing | default "spacious")
+}}
+
+{{/* Return theme config dict */}}
+{{ return dict 
+    "mode" $mode
+    "light" $light_pack
+    "dark" $dark_pack
+    "colors" $colors
+    "colors_light" $colors_light
+    "colors_dark" $colors_dark
+    "surfaces" $surfaces
+    "typography" $typography
+    "layout" $layout
+}}

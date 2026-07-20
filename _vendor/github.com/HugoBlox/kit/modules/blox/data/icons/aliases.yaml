@@ -1,0 +1,9 @@
+# HugoBlox icon aliases — survives icon pack updates.
+# Format:  pack/old-name → pack/new-name  (or cross-pack)
+#
+# Each entry maps   <pack>/<alias>  →  <pack>/<canonical>
+# If the target pack differs, specify it explicitly.
+
+brands:
+  google-scholar: googlescholar
+  weixin: wechat

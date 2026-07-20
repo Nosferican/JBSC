@@ -1,0 +1,54 @@
+{{/*
+  resolve_image_resource — Resolves an image path string to either a Hugo image
+  resource or a fallback URL. Handles remote URLs, page resources, and assets/media
+  lookups using the same rules as the inline per-item image resolver.
+
+  Inputs:
+    .path: image path (required) — relative ("dashboard.png", "media/foo.jpg")
+           or absolute URL ("https://…").
+    .Page: current page (optional, recommended for page-resource lookup).
+
+  Returns dict with one of:
+    .resource:     Hugo image resource (use with .Process, srcset, etc.)
+    .fallback_url: plain URL string (use as <img src>)
+  Or an empty dict if path is missing.
+*/}}
+{{ $result := dict }}
+{{ $path := strings.TrimSpace (printf "%v" (.path | default "")) }}
+
+{{ if $path }}
+  {{ $is_remote := or (strings.HasPrefix $path "http://") (strings.HasPrefix $path "https://") }}
+
+  {{ if $is_remote }}
+    {{ $remote := try (resources.GetRemote $path) }}
+    {{ if and $remote (not $remote.Err) }}
+      {{ $result = dict "resource" $remote.Value }}
+    {{ else }}
+      {{ $result = dict "fallback_url" $path }}
+    {{ end }}
+  {{ else }}
+    {{ $normalized := $path }}
+    {{ $normalized = strings.TrimPrefix "/" $normalized }}
+    {{ $normalized = strings.TrimPrefix "./" $normalized }}
+    {{ $normalized = strings.TrimPrefix "assets/" $normalized }}
+    {{ $normalized = strings.TrimPrefix "media/" $normalized }}
+    {{ $normalized = path.Clean $normalized }}
+
+    {{ if and $normalized (ne $normalized ".") }}
+      {{ $resource := false }}
+      {{ with .Page }}
+        {{ $resource = (.Resources.ByType "image").GetMatch $normalized }}
+      {{ end }}
+      {{ if not $resource }}
+        {{ $resource = resources.Get (path.Join "media" $normalized) }}
+      {{ end }}
+      {{ if $resource }}
+        {{ $result = dict "resource" $resource }}
+      {{ else }}
+        {{ $result = dict "fallback_url" (printf "/media/%s" $normalized) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ return $result }}

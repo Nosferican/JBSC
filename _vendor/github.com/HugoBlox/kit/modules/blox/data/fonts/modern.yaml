@@ -1,0 +1,35 @@
+# HugoBlox Font Pack
+# https://docs.hugoblox.com
+
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Modern"
+    vendor: "hugoblox"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Clean, modern sans-serif pairing — the default HugoBlox look"
+
+  families:
+    heading: "Inter"
+    body: "Inter"
+    code: "JetBrains Mono"
+
+  weights:
+    heading: [600, 700]
+    body: [400, 500]
+    code: [400]
+
+  leading:
+    heading: 1.2
+    body: 1.6
+    code: 1.5
+
+  tracking:
+    heading: "-0.02em"
+    body: "0"
+
+  variable:
+    heading: true
+    body: true
+    code: true

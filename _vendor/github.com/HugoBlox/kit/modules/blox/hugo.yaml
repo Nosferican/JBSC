@@ -1,0 +1,176 @@
+build:
+  buildStats:
+    enable: true
+  cachebusters:
+    - source: assets/hugo_stats\.json
+      target: css
+    - source: (postcss|tailwind)\.config\.js
+      target: css
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderHooks:
+      link:
+        # Process backlinks hook
+        useEmbedded: fallback
+    renderer:
+      # Render HTML in Markdown
+      unsafe: true
+    parser:
+      # Support Latex math(?)
+      attribute:
+        block: true # For callouts as quote blocks
+        title: true
+    extensions:
+      # Support Latex math
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+            - - $
+              - $
+      extras:
+        # Enable subscript, superscript, and highlighting with ~,^, and == wrappers
+        insert:
+          enable: false
+        mark:
+          enable: true
+        subscript:
+          enable: true
+        superscript:
+          enable: true
+  highlight:
+    # Enable code highlighting
+    codeFences: true
+    noHl: false
+    lineNumbersInTable: false
+    noClasses: false
+    guessSyntax: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+minify:
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepComments: true
+      keepSpecialComments: true
+sitemap:
+  changefreq: weekly
+security:
+  funcs:
+    getenv:
+      # Allow HUGO_ and HUGO_BLOX_ vars
+      - ^HUGO_
+      # Allow continuous integration vars
+      - ^CI$
+  # Note: security.node.permissions is intentionally NOT set here. Hugo
+  # >= 0.161.1's built-in defaults permit `tailwindcss` for allowAddons,
+  # allowChildProcess, and allowWorker — sufficient for @tailwindcss/cli's
+  # transitive spawns (e.g. @parcel/watcher → detect-libc → getconf on
+  # Linux). The hugoVersion.min below pins to 0.161.1 because 0.161.0
+  # introduced the Node permission sandbox without an allowChildProcess
+  # field, so all spawns under tailwindcss were blocked on Linux.
+outputFormats:
+  backlinks:
+    mediaType: application/json
+    baseName: backlinks
+    isPlainText: true
+    notAlternative: true
+  LLM:
+    mediaType: text/plain
+    baseName: llms
+    isPlainText: true
+    notAlternative: true
+    permalinkable: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - LLM
+imaging:
+  # High quality defaults for crisp avatar display
+  quality: 90
+  resampleFilter: lanczos
+  anchor: smart
+  hint: picture
+params:
+  locale:
+    date_format: "Jan 2, 2006"
+    time_format: "3:04 PM"
+    address_format: en-us
+module:
+  hugoVersion:
+    # 0.161.0 introduced css.TailwindCSS Node.js permission sandbox
+    # (Node >= 22 required) and dropped support for the standalone
+    # tailwindcss binary. The npm @tailwindcss/cli package is required.
+    # 0.161.1 added security.node.permissions.allowChildProcess (default
+    # ['tailwindcss']); 0.161.0 has no way to permit any child process,
+    # so spawns under tailwindcss (e.g. @parcel/watcher's detect-libc →
+    # getconf on Linux) are blocked with ERR_ACCESS_DENIED.
+    min: "0.161.1"
+    extended: true
+  imports:
+    - path: github.com/HugoBlox/kit/modules/analytics
+  mounts:
+    - source: content
+      target: content
+    - source: static
+      target: static
+    - source: layouts
+      target: layouts
+    - source: data
+      target: data
+    - source: assets
+      target: assets
+    - source: i18n
+      target: i18n
+    - source: archetypes
+      target: archetypes
+    - disableWatch: true
+      source: hugo_stats.json
+      target: assets/hugo_stats.json
+
+    # BLOX A) Server-rendered block templates (Go HTML)
+    - source: blox
+      target: layouts/_partials/hbx/blocks
+      files:
+        - "**/block.html"
+
+    # BLOX B) Client islands (compiled with js.Build/js.Batch)
+    - source: blox
+      target: assets/js/hbx/blocks
+      files:
+        - "**/*.js"
+        - "**/*.ts"
+        - "**/*.jsx"
+        - "**/*.tsx"
+
+    # BLOX C) Block-specific CSS
+    - source: blox
+      target: assets/css/hbx/blocks
+      files:
+        - "**/*.css"
+
+    # BLOX D) Shared assets (optional)
+    - source: blox/shared/js
+      target: assets/js/hbx/shared
+    - source: blox/shared/css
+      target: assets/css/hbx/shared
+    - source: blox
+      target: assets/img/hbx/blocks
+      files:
+        - "**/*.png"
+        - "**/*.jpg"
+        - "**/*.jpeg"
+        - "**/*.svg"
+        - "**/*.webp"

@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/custom-overrides.css">
+<script>
+	(() => {
+		const applyThemeAssets = () => {
+			document.querySelectorAll('img.theme-logo-pumas[data-light-src][data-dark-src]').forEach((img) => {
+				const isDark = document.documentElement.classList.contains('dark');
+				const nextSrc = isDark ? img.dataset.darkSrc : img.dataset.lightSrc;
+				if (nextSrc && img.getAttribute('src') !== nextSrc) {
+					img.setAttribute('src', nextSrc);
+				}
+			});
+		};
+
+		const setupThemeLogos = () => {
+			applyThemeAssets();
+			new MutationObserver(applyThemeAssets).observe(document.documentElement, {
+				attributes: true,
+				attributeFilter: ['class']
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', setupThemeLogos, { once: true });
+		} else {
+			setupThemeLogos();
+		}
+	})();
+</script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>

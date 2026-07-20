@@ -1,85 +1,135 @@
+/* Personal branding overrides for the migrated site */
+
+:root {
+  --jbsc-primary: #0f4c81;
+  --jbsc-secondary: #0b7a75;
+  --jbsc-accent: #e76f51;
+
+  --social-linkedin: #0a66c2;
+  --social-github: #24292f;
+  --social-instagram: #e4405f;
+  --social-orcid: #a6ce39;
+  --social-email: #0f4c81;
+}
+
+.article-style,
 .bio-text {
   text-align: justify;
 }
 
-.article-style {
-  text-align: justify;
+.experience-logo-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 1.5rem;
 }
 
-.card-text {
-  text-align: justify;
+.experience-tile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(15, 76, 129, 0.16);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
 }
 
-/* Social Media */
-.fa-linkedin {
-  color: rgba(0, 119, 181, 1);
+.dark .experience-tile {
+  background: rgba(17, 24, 39, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-.fa-facebook {
-  color: rgba(66, 103, 178, 1);
+.experience-tile img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.fa-mastodon {
-  color: rgba(86, 58, 204, 1);
+.experience-tile strong {
+  display: block;
+  margin-bottom: 0.2rem;
 }
 
-.fa-linkedin-in {
-  color: rgba(0, 119, 181, 1);
+.social-icon-link {
+  color: inherit !important;
 }
 
-.fa-github {
-  mix-blend-mode: hard-light;
+.social-icon-stack {
+  --social-brand-color: var(--jbsc-primary);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  line-height: 1;
 }
 
-.fa-envelope {
-  mix-blend-mode: hard-light;
+.social-icon-stack .fa-stack-2x {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--social-brand-color);
+  box-shadow: 0 10px 24px rgba(15, 76, 129, 0.18);
 }
 
-.fa-mobile {
-  color: rgba(0, 0, 0, 1);
+.social-icon-stack .fa-stack-1x {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
-.fa-skype {
-  color: rgba(0, 175, 240, 1);
+.social-icon-stack .fa-inverse,
+.social-icon-stack .fa-inverse svg {
+  color: #fff;
 }
 
-.ai-orcid {
-  color: rgba(166, 206, 57, 1);
+.social-icon-stack .fa-inverse svg {
+  fill: currentColor;
 }
 
-.fa-instagram {
-  color: rgba(233, 89, 80, 1)
+.social-icon-stack .fa-inverse svg path:not([fill="none"]),
+.social-icon-stack .fa-inverse svg circle,
+.social-icon-stack .fa-inverse svg rect,
+.social-icon-stack .fa-inverse svg polygon {
+  fill: currentColor;
 }
 
-.fa-whatsapp {
-  color: rgba(37, 211, 102, 1)
+.social-icon-stack .fa-inverse svg [fill="none"] {
+  fill: none;
 }
 
-.ai-researchgate {
-  color: rgba(0, 233, 197, 1);
+.social-icon-stack .fa-inverse svg [stroke="currentColor"] {
+  stroke: currentColor;
 }
 
-.dark .card .section-subheading a {
-  color: rgba(187, 222, 251, 1);
-  border-bottom: solid 1px transparent;
+.social-icon-brands-linkedin {
+  --social-brand-color: var(--social-linkedin);
 }
 
-body:not(.dark) .mongo_dark {
-  display: none;
+.social-icon-brands-github {
+  --social-brand-color: var(--social-github);
 }
 
-.dark .mongo_light {
-  display: none;
+.social-icon-brands-instagram {
+  --social-brand-color: var(--social-instagram);
 }
 
-body:not(.dark) .neo4j_dark {
-  display: none;
+.social-icon-academicons-orcid {
+  --social-brand-color: var(--social-orcid);
 }
 
-.dark .neo4j_light {
-  display: none;
+.social-icon-at-symbol,
+.social-icon-email {
+  --social-brand-color: var(--social-email);
 }
 
-.course_notes {
-  font-size: small;
+.hero-title {
+  color: var(--jbsc-primary);
 }

@@ -1,0 +1,257 @@
+{{/*
+  resolve_gallery_items — Resolves gallery block items into a list of fully-processed
+  image props ready for the Preact component. Three source modes:
+
+    1. content.items[]        — explicit per-image dicts (curated)
+    2. content.album          — folder under assets/, e.g. "media/albums/gallery"
+    3. content.page_resources — auto-discover image resources in the current page bundle
+
+  For each resolved image, produces a dict with:
+    {src, srcset, width, height, aspect_ratio, lqip, alt, caption, credit, link, title}
+
+  Metadata waterfall — first non-empty value per field wins:
+    1. Frontmatter (items[].caption etc.)
+    2. Sidecar file next to the image (.yaml / .yml / .json)
+         — tried as "<full-name>.yaml" then "<basename-without-ext>.yaml"
+         — looked up in both site assets and the current page bundle
+    3. Embedded IPTC/EXIF via Hugo's .Exif.Tags
+         — caption from Caption-Abstract / ImageDescription / XPSubject / Description
+         — credit from By-line / Artist / Creator
+    4. Humanised filename (alt only — captions stay empty when no metadata exists)
+
+  Inputs:
+    .content: the block's content dict
+    .Page:    current page (used for page-resource lookup + RenderString markdown)
+
+  Returns: dict { items: [...] } or empty if nothing resolves.
+*/}}
+{{ $page := .Page }}
+{{ $content := .content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $allowed_exts := slice ".jpg" ".jpeg" ".png" ".webp" ".gif" ".avif" ".svg" }}
+{{ $sort_order := lower ($content.sort | default "asc") }}
+{{ $limit := $content.limit | default 0 }}
+
+{{/* Build a unified list of {resource?, fallback_url?, meta} entries */}}
+{{ $candidates := slice }}
+
+{{/* Source A — explicit items */}}
+{{ with $content.items }}
+  {{ range . }}
+    {{ $src := .src | default "" }}
+    {{ if $src }}
+      {{ $resolved := partial "functions/resolve_image_resource" (dict "path" $src "Page" $page) }}
+      {{ $candidates = $candidates | append (dict
+        "resource" $resolved.resource
+        "fallback_url" ($resolved.fallback_url | default "")
+        "meta" .
+      ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Source B — album folder glob */}}
+{{ with $content.album }}
+  {{ $album := strings.TrimSuffix "/" . }}
+  {{ $matches := resources.Match (printf "%s/*" $album) }}
+  {{ $sorted := sort $matches "Name" $sort_order }}
+  {{ range $sorted }}
+    {{ if in $allowed_exts (lower (path.Ext .Name)) }}
+      {{ $candidates = $candidates | append (dict
+        "resource" .
+        "fallback_url" ""
+        "meta" dict
+      ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Source C — page bundle auto-discovery */}}
+{{ if $content.page_resources }}
+  {{ with $page }}
+    {{ $imgs := .Resources.ByType "image" }}
+    {{ $sorted := sort $imgs "Name" $sort_order }}
+    {{ range $sorted }}
+      {{ if in $allowed_exts (lower (path.Ext .Name)) }}
+        {{ $candidates = $candidates | append (dict
+          "resource" .
+          "fallback_url" ""
+          "meta" dict
+        ) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Apply limit */}}
+{{ if gt $limit 0 }}
+  {{ $candidates = first $limit $candidates }}
+{{ end }}
+
+{{/* Process each candidate into final item props */}}
+{{ $out := slice }}
+{{ range $candidates }}
+  {{ $meta := .meta }}
+  {{ $resource := .resource }}
+  {{ $fallback_url := .fallback_url }}
+
+  {{/* ---- Metadata waterfall ---- */}}
+  {{ $alt := index $meta "alt" | default "" }}
+  {{ $caption_raw := index $meta "caption" | default "" }}
+  {{ $title_raw := index $meta "title" | default "" }}
+  {{ $credit_raw := index $meta "credit" | default "" }}
+  {{ $link := index $meta "link" | default "" }}
+
+  {{/* Tier 2 — sidecar file lookup. Tries:
+        <name>.yaml/.yml/.json (full filename, Lightroom-style convention)
+        <basename>.yaml/.yml/.json (filename minus extension)
+       in both site assets and the page bundle. */}}
+  {{ $sidecar := false }}
+  {{ if $resource }}
+    {{/* Resource.Name comes back with a leading slash for site assets (e.g.
+        "/media/albums/gallery/01.jpg"); strip it so resources.Get treats the
+        path as relative to assets/. Page-bundle resource names have no
+        leading slash, so TrimPrefix is a no-op for those. */}}
+    {{ $name := strings.TrimPrefix "/" $resource.Name }}
+    {{ $basename := strings.TrimSuffix (path.Ext $name) $name }}
+    {{ $patterns := slice
+      (printf "%s.yaml" $name)
+      (printf "%s.yml" $name)
+      (printf "%s.json" $name)
+      (printf "%s.yaml" $basename)
+      (printf "%s.yml" $basename)
+      (printf "%s.json" $basename)
+    }}
+    {{ range $pattern := $patterns }}
+      {{ if not $sidecar }}
+        {{ $candidate := resources.Get $pattern }}
+        {{ if not $candidate }}{{ $candidate = resources.GetMatch $pattern }}{{ end }}
+        {{ if and (not $candidate) $page }}
+          {{ $candidate = $page.Resources.GetMatch $pattern }}
+        {{ end }}
+        {{ if $candidate }}
+          {{ $sidecar = $candidate }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $sidecar }}
+    {{ $data := transform.Unmarshal $sidecar }}
+    {{ if reflect.IsMap $data }}
+      {{ if not $caption_raw }}{{ $caption_raw = index $data "caption" | default "" }}{{ end }}
+      {{ if not $title_raw }}{{ $title_raw = index $data "title" | default "" }}{{ end }}
+      {{ if not $credit_raw }}{{ $credit_raw = index $data "credit" | default "" }}{{ end }}
+      {{ if not $alt }}{{ $alt = index $data "alt" | default "" }}{{ end }}
+      {{ if not $link }}{{ $link = index $data "link" | default "" }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Tier 3 — embedded IPTC/EXIF. Lightroom/Capture One JPEG exports carry
+       Caption-Abstract + By-line + Copyright; this picks them up automatically. */}}
+  {{ $exif_tags := dict }}
+  {{ if $resource }}
+    {{ $exif_try := try $resource.Exif }}
+    {{ if and (not $exif_try.Err) $exif_try.Value }}
+      {{ $exif_tags = $exif_try.Value.Tags | default dict }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $exif_tags }}
+    {{ if not $caption_raw }}
+      {{ range $key := (slice "Caption-Abstract" "ImageDescription" "XPSubject" "Description") }}
+        {{ if not $caption_raw }}
+          {{ $v := index $exif_tags $key }}
+          {{ if $v }}{{ $caption_raw = printf "%v" $v }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if not $credit_raw }}
+      {{ range $key := (slice "By-line" "Artist" "Creator") }}
+        {{ if not $credit_raw }}
+          {{ $v := index $exif_tags $key }}
+          {{ if $v }}{{ $credit_raw = printf "%v" $v }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* ---- Inline-Markdown render of text fields (RenderString display:inline) ---- */}}
+  {{ $caption := $caption_raw }}
+  {{ if and $caption_raw $page }}
+    {{ $caption = $page.RenderString (dict "display" "inline") $caption_raw }}
+  {{ end }}
+  {{ $title := $title_raw }}
+  {{ if and $title_raw $page }}
+    {{ $title = $page.RenderString (dict "display" "inline") $title_raw }}
+  {{ end }}
+  {{ $credit := $credit_raw }}
+  {{ if and $credit_raw $page }}
+    {{ $credit = $page.RenderString (dict "display" "inline") $credit_raw }}
+  {{ end }}
+
+  {{ $entry := dict
+    "alt" $alt
+    "caption" $caption
+    "credit" $credit
+    "link" $link
+    "title" $title
+  }}
+
+  {{ if $resource }}
+    {{ $canProcess := and (reflect.IsImageResourceProcessable $resource) (ne $resource.MediaType.SubType "gif") }}
+    {{ if $canProcess }}
+      {{ $responsive := partial "functions/process_responsive_image.html" (dict
+        "image" $resource
+        "mode" "fit"
+        "sizes" (slice 480 768 1024 1366 1920)
+      ) }}
+      {{ $entry = merge $entry (dict
+        "src" $responsive.fallback.RelPermalink
+        "srcset" $responsive.srcset
+        "width" $responsive.fallback.Width
+        "height" $responsive.fallback.Height
+        "aspect_ratio" (div (float $resource.Width) (float $resource.Height))
+      ) }}
+
+      {{/* LQIP — 20px wide WebP, inlined as base64 for instant placeholder paint */}}
+      {{ $lqip_res := $resource.Resize "20x webp q30" }}
+      {{ $lqip_b64 := $lqip_res.Content | base64Encode }}
+      {{ $entry = merge $entry (dict "lqip" (printf "data:image/webp;base64,%s" $lqip_b64)) }}
+    {{ else }}
+      {{/* SVG / GIF — pass through unprocessed */}}
+      {{ $entry = merge $entry (dict
+        "src" $resource.RelPermalink
+        "width" $resource.Width
+        "height" $resource.Height
+        "aspect_ratio" (cond (gt $resource.Height 0) (div (float $resource.Width) (float $resource.Height)) 1.0)
+      ) }}
+    {{ end }}
+
+    {{/* Tier 4 — alt fallback: plainified caption → humanised filename. Caption
+        itself stays empty when no metadata source has supplied one. */}}
+    {{ if not $entry.alt }}
+      {{ $fallback_alt := "" }}
+      {{ with $caption_raw }}
+        {{ $fallback_alt = plainify (printf "%s" $entry.caption) }}
+      {{ end }}
+      {{ if not $fallback_alt }}
+        {{ $base := path.Base $resource.Name }}
+        {{ $name := strings.TrimSuffix (path.Ext $base) $base }}
+        {{ $name = replace $name "-" " " }}
+        {{ $name = replace $name "_" " " }}
+        {{ $fallback_alt = humanize $name }}
+      {{ end }}
+      {{ $entry = merge $entry (dict "alt" $fallback_alt) }}
+    {{ end }}
+  {{ else if $fallback_url }}
+    {{ $entry = merge $entry (dict "src" $fallback_url) }}
+  {{ end }}
+
+  {{ if $entry.src }}
+    {{ $out = $out | append $entry }}
+  {{ end }}
+{{ end }}
+
+{{ return dict "items" $out }}

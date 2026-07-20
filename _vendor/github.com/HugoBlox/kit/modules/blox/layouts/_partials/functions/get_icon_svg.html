@@ -1,0 +1,83 @@
+{{/* Resolve an icon name to a raw SVG string.
+     Shared core used by get_icon.html (Go templates) and get_icon_data.html (Preact).
+
+     PARAMETERS:
+     - name: Icon name, optionally with pack prefix (e.g., "arrow-right" or "hero/arrow-right")
+     - pack: Icon pack name (defaults to "hero" if not specified in name)
+     - Page: (optional) Page context for logging missing icons
+
+     RETURNS: Raw SVG string, or empty string if not found.
+
+     RESOLUTION ORDER:
+     1. Alias resolution via data/icons/aliases.yaml
+     2. Named pack lookup (hb returns full SVG; others wrap body in <svg> tag)
+     3. Fallback to hb pack
+     4. User assets at assets/media/icons/{pack}/{name}.svg
+     5. Hugo brand icon as last resort (only when an explicit pack was specified)
+*/}}
+
+{{- $dirFile := path.Split .name -}}
+{{- $pack := .pack | default (strings.Replace $dirFile.Dir "/" "") | default "hero" -}}
+{{- $name := $dirFile.File -}}
+{{- $explicitPack := or (.pack) (strings.Contains .name "/") -}}
+
+{{- /* Resolve icon aliases (e.g. brands/google-scholar → brands/googlescholar) */ -}}
+{{- with index hugo.Data.icons.aliases $pack -}}
+  {{- with index . $name -}}
+    {{- $name = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $icon := "" -}}
+{{- $icon_pack := index hugo.Data.icons $pack -}}
+{{- $pack_icon := index (index $icon_pack "icons") $name -}}
+
+{{- if $pack_icon -}}
+  {{- if eq $pack "hb" -}}
+    {{- $icon = $pack_icon -}}
+  {{- else -}}
+    {{- $icon_body := index $pack_icon "body" -}}
+    {{- $icon_size := index $icon_pack "height" -}}
+    {{- $icon = printf `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %s %s">%s</svg>` (cast.ToString $icon_size) (cast.ToString $icon_size) $icon_body -}}
+  {{- end -}}
+{{- else -}}
+  {{- /* Icon not found in pack — try hb fallback, then user assets */ -}}
+  {{- with index (index hugo.Data.icons.hb "icons") $name -}}
+    {{- $icon = . -}}
+  {{- else -}}
+    {{- $prefix := printf "media/icons/%s/" $pack -}}
+    {{- $icon_path := printf "%s%s.svg" $prefix $name -}}
+    {{- $icon_resource := resources.Get $icon_path -}}
+    {{- if $icon_resource -}}
+      {{- $icon = $icon_resource.Content -}}
+    {{- else if $explicitPack -}}
+      {{- /* Only warn and use Hugo brand fallback when user specified an explicit pack */ -}}
+      {{- if not (fileExists (printf "assets/%s" $icon_path)) -}}
+        {{ $pageRef := "unknown location" }}
+        {{ if $.Page }}
+          {{ if $.Page.File }}
+            {{ if $.Page.File.Path }}
+              {{ $pageRef = $.Page.File.Path }}
+            {{ else if $.Page.RelPermalink }}
+              {{ $pageRef = $.Page.RelPermalink }}
+            {{ end }}
+          {{ else if $.Page.RelPermalink }}
+            {{ $pageRef = $.Page.RelPermalink }}
+          {{ end }}
+        {{ end }}
+        {{ partial "functions/logger" (dict
+              "page" $.Page
+              "level" "warn"
+              "id" (printf "missing-icon-%s-%s" $pack $name)
+              "message" (printf "The icon `%s` was not found in `assets/media/icons/%s/`. Referenced in: %s" $name $pack $pageRef)
+            )
+        }}
+      {{- end -}}
+      {{- with index (index hugo.Data.icons.brands "icons") "hugo" -}}
+        {{- $icon = printf `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">%s</svg>` (index . "body") -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $icon -}}
