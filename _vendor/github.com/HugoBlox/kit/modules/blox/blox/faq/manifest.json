@@ -1,0 +1,16 @@
+{
+  "id": "faq",
+  "name": "FAQ",
+  "version": "2.0.0",
+  "license": "MIT",
+  "category": "content",
+  "intent": ["inform", "convert"],
+  "verticals": ["startup", "saas", "agency", "academic-cv", "lab", "dev-portfolio", "help"],
+  "tags": ["faq", "questions", "help", "support", "objections", "accordion"],
+  "description": "Frequently asked questions accordion. Smooth height-animated expand, single-open behavior, Markdown answers (bold, italic, code, links), optional CTA button. Use to handle objections at the decision point — common placement is between testimonials and the final CTA.",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "faq", "accordion", "questions"],
+  "preview": "preview.svg"
+}

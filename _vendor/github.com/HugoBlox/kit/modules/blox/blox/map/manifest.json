@@ -1,0 +1,18 @@
+{
+  "id": "map",
+  "name": "Map",
+  "version": "1.0.0",
+  "license": "MIT",
+  "category": "location",
+  "intent": ["inform", "navigate"],
+  "verticals": ["academic-cv", "agency", "event", "startup", "local-business", "podcaster"],
+  "tags": ["map", "location", "address", "directions", "openstreetmap", "openfreemap", "maplibre"],
+  "description": "Interactive open-source map showing a single location or a set of markers. Powered by MapLibre GL and OpenFreeMap — zero-config, no API key, fully open. Renders an address card alongside the map by default, with optional CTAs for directions, phone, and email.",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "map", "maplibre", "openfreemap", "openstreetmap", "location", "directions"],
+  "dependencies": {
+    "maplibre-gl": "^4.7.1"
+  }
+}

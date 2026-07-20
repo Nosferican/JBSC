@@ -1,0 +1,97 @@
+:root {
+  --jbsc-primary: #0f4c81;
+  --social-linkedin: #0a66c2;
+  --social-github: #24292f;
+  --social-instagram: #e4405f;
+  --social-orcid: #a6ce39;
+  --social-email: #0f4c81;
+}
+
+.social-icon-link {
+  color: inherit !important;
+}
+
+.social-icon-stack {
+  --social-brand-color: var(--jbsc-primary);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  line-height: 1;
+}
+
+.social-icon-stack .fa-stack-2x {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--social-brand-color);
+  box-shadow: 0 10px 24px rgba(15, 76, 129, 0.18);
+}
+
+.social-icon-stack .fa-stack-1x {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.social-icon-stack .fa-inverse,
+.social-icon-stack .fa-inverse svg {
+  color: #fff;
+}
+
+.social-icon-stack .fa-inverse svg {
+  fill: currentColor;
+}
+
+.social-icon-stack .fa-inverse svg path:not([fill="none"]),
+.social-icon-stack .fa-inverse svg circle,
+.social-icon-stack .fa-inverse svg rect,
+.social-icon-stack .fa-inverse svg polygon {
+  fill: currentColor;
+}
+
+.social-icon-stack .fa-inverse svg [fill="none"] {
+  fill: none;
+}
+
+.social-icon-stack .fa-inverse svg [stroke="currentColor"] {
+  stroke: currentColor;
+}
+
+.social-icon-brands-linkedin {
+  --social-brand-color: var(--social-linkedin);
+}
+
+.social-icon-brands-github {
+  --social-brand-color: var(--social-github);
+}
+
+.social-icon-brands-instagram {
+  --social-brand-color: var(--social-instagram);
+}
+
+.social-icon-academicons-orcid {
+  --social-brand-color: var(--social-orcid);
+}
+
+.social-icon-at-symbol,
+.social-icon-email {
+  --social-brand-color: var(--social-email);
+}
+
+.experience-logo {
+  width: 72px;
+  height: 72px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.theme-logo-pumas {
+  display: block;
+}

@@ -1,0 +1,12 @@
+{{/* Return the page's `image` frontmatter as a map, or an empty map if unset.
+     Warns if `image` is set but not an object. */}}
+{{ $img := .Params.image }}
+{{ $result := dict }}
+{{ if $img }}
+  {{ if reflect.IsMap $img }}
+    {{ $result = $img }}
+  {{ else }}
+    {{ warnf "page %q: `image` frontmatter must be an object, e.g.\n  image:\n    filename: cover.jpg\nGot: %v" .Path $img }}
+  {{ end }}
+{{ end }}
+{{ return $result }}

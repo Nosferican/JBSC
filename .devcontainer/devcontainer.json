@@ -1,0 +1,27 @@
+{
+  "name": "HugoBlox Codespace",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  // "postCreateCommand": "npm install -g pnpm@10.14.0 && pnpm --version && hugo version",
+  // "updateContentCommand": "pnpm install --frozen-lockfile --prefer-offline",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hugoblox.hugoblox-studio"
+      ]
+    }
+  },
+  "mounts": [
+    "source=pnpm-lock.yaml,target=/src,type=volume"
+  ],
+  "forwardPorts": [
+    1313
+  ],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo Server"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+/* Gallery block — masonry item spacing, LQIP backdrop, lightbox polish */
+
+/* Masonry vertical spacing: each tile needs explicit margin-bottom because
+   Tailwind's `space-y-*` uses `:not(:last-child)` which doesn't behave inside
+   CSS multi-column layout. */
+.hbx-gallery-masonry > .hbx-gallery-tile {
+  margin-bottom: 1rem;
+  break-inside: avoid;
+}
+
+.hbx-gallery-masonry-gap-sm > .hbx-gallery-tile {
+  margin-bottom: 0.5rem;
+}
+.hbx-gallery-masonry-gap-lg > .hbx-gallery-tile {
+  margin-bottom: 1.5rem;
+}
+
+/* LQIP placeholder — applied as a background-image so the real <img> can
+   fade in over it without a layout shift. */
+.hbx-gallery-tile-lqip {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Lightbox caption — limit width so long captions wrap rather than spanning
+   the full viewport. */
+.hbx-gallery-lightbox-caption {
+  max-width: min(72ch, 90vw);
+}
+
+/* Justified — cap the last item's growth so a lonely last-row image doesn't
+   stretch grotesquely across the full row width. */
+.hbx-gallery-justified > .hbx-gallery-justified-item:last-child {
+  max-width: 50%;
+}
+
+/* Carousel — smooth programmatic scroll + slim styled scrollbar so users still
+   get the scroll affordance without it dominating the strip. */
+.hbx-gallery-carousel {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175 / 0.5) transparent;
+}
+.hbx-gallery-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+.hbx-gallery-carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hbx-gallery-carousel::-webkit-scrollbar-thumb {
+  background: rgb(156 163 175 / 0.5);
+  border-radius: 9999px;
+}
+.hbx-gallery-carousel::-webkit-scrollbar-thumb:hover {
+  background: rgb(107 114 128 / 0.7);
+}
+
+/* Prevent backdrop-blurred caption from picking up site text colour in dark
+   mode (where body text is white on a black backdrop already). */
+.hbx-gallery-lightbox-caption,
+.hbx-gallery-lightbox-caption a {
+  color: rgb(243 244 246);
+}
+.hbx-gallery-lightbox-caption a:hover {
+  color: rgb(255 255 255);
+}

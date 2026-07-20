@@ -1,0 +1,15 @@
+{
+  "id": "comparison-table",
+  "name": "Comparison Table",
+  "version": "1.0.0",
+  "license": "MIT",
+  "category": "convert",
+  "intent": ["convert", "differentiate"],
+  "verticals": ["startup", "saas", "agency", "dev-portfolio"],
+  "tags": ["comparison", "competitors", "differentiation", "feature-matrix", "vs", "pricing-comparison"],
+  "description": "Side-by-side feature comparison against competitors. Drives conversion by making your differentiators visible at a glance. Highlights your column, supports check/cross/text/value cells, category groupings, and a CTA on the highlighted column. Responsive: table on desktop, stacked cards on mobile.",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "comparison", "competitors", "feature-matrix", "vs"]
+}

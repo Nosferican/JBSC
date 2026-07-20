@@ -1,0 +1,35 @@
+# HugoBlox Font Pack
+# https://docs.hugoblox.com
+
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Humanist"
+    vendor: "hugoblox"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Friendly, approachable rounded sans-serif for community and personal sites"
+
+  families:
+    heading: "Nunito"
+    body: "Open Sans"
+    code: "Ubuntu Mono"
+
+  weights:
+    heading: [600, 700, 800]
+    body: [400, 600]
+    code: [400, 700]
+
+  leading:
+    heading: 1.25
+    body: 1.65
+    code: 1.5
+
+  tracking:
+    heading: "0"
+    body: "0"
+
+  variable:
+    heading: true
+    body: true
+    code: false

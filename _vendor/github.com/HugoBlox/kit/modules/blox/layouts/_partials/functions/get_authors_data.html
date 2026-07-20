@@ -1,0 +1,54 @@
+{{/*
+  Return the authors data map for the current language.
+
+  For multilingual sites, language-specific author data from data/<lang>/authors/
+  is merged on top of the default data/authors/ files. This allows translating
+  fields like name, bio, role, etc., while inheriting non-translated fields.
+
+  Usage:
+    {{ $authors := partialCached "functions/get_authors_data" . site.Language.Lang }}
+
+  Returns: map of slug → author data (same shape as hugo.Data.authors)
+*/}}
+
+{{- $authors := hugo.Data.authors -}}
+{{- if not $authors -}}
+  {{- $authors = dict -}}
+{{- end -}}
+
+{{/* Check for language-specific author overrides */}}
+{{- $lang := site.Language.Lang -}}
+{{- $langData := index hugo.Data $lang -}}
+{{- if $langData -}}
+  {{- $langAuthors := index $langData "authors" -}}
+  {{- if $langAuthors -}}
+    {{/* Merge each language-specific author data on top of the default */}}
+    {{- $merged := dict -}}
+    {{/* Start with all default authors */}}
+    {{- range $slug, $data := $authors -}}
+      {{- $langAuthor := index $langAuthors $slug -}}
+      {{- if $langAuthor -}}
+        {{/* Language data overrides default; merge gives $langAuthor priority */}}
+        {{- $mergedAuthor := merge $data $langAuthor -}}
+        {{/* Deep-merge the 'name' submap if both have it */}}
+        {{- $baseName := index $data "name" -}}
+        {{- $langName := index $langAuthor "name" -}}
+        {{- if and (reflect.IsMap $baseName) (reflect.IsMap $langName) -}}
+          {{- $mergedAuthor = merge $mergedAuthor (dict "name" (merge $baseName $langName)) -}}
+        {{- end -}}
+        {{- $merged = merge $merged (dict $slug $mergedAuthor) -}}
+      {{- else -}}
+        {{- $merged = merge $merged (dict $slug $data) -}}
+      {{- end -}}
+    {{- end -}}
+    {{/* Add any authors that only exist in the language data */}}
+    {{- range $slug, $data := $langAuthors -}}
+      {{- if not (index $authors $slug) -}}
+        {{- $merged = merge $merged (dict $slug $data) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $authors = $merged -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $authors -}}

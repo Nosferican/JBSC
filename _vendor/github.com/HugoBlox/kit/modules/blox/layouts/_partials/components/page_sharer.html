@@ -1,0 +1,22 @@
+{{ if ne .Params.share false }}
+<section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+  {{ range where hugo.Data.page_sharer.links "enable" true }}
+
+  {{/* mailto URIs require percent-encoding (%20 for spaces) per RFC 6068, not form-encoding (+ for spaces). */}}
+  {{/* Use urls.PathEscape for mailto; urlquery for other schemes (https, etc.). */}}
+  {{ $is_mailto := eq (urls.Parse .url).Scheme "mailto" }}
+  {{ $link := replace .url "{url}" (cond $is_mailto (urls.PathEscape $.Permalink) (urlquery $.Permalink)) }}
+  {{ $link = replace $link "{title}" (cond $is_mailto (urls.PathEscape $.Title) (urlquery $.Title)) }}
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="{{$link|safeURL}}"
+    title="{{ .title }}"
+    aria-label="{{ .title }}"
+    id="share-link-{{.id}}"
+  >
+    {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1em;\"") }}
+  </a>
+  {{ end }}
+</section>
+{{ end }}

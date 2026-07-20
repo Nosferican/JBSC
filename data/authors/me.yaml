@@ -1,0 +1,176 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Dr. José Bayoán Santiago Calderón
+  given: José Bayoán
+  family: Santiago Calderón
+  alternate: ''
+  pronunciation: ''
+  pronouns: he/him
+postnominals:
+  - PhD
+status:
+  icon: ""
+  show_icon: false
+role: Research Economist
+bio: |
+  José Bayoán Santiago Calderón is a senior research economist in the national economic accounts research group at the U.S. Bureau of Economic Analysis. Before joining the federal statistical system, Dr. Santiago Calderón had years of experience in the private sector as a research scientist at various companies. Bayoán also held academic appointments with the Biocomplexity Institute and Initiative at the University of Virginia, where he started his career in public service.
+  
+  His research has centered on improving decision-making. His transdisciplinary research approach has enabled him to routinely collaborate across disciplines and develop a diverse set of domain knowledge and methodological toolset. He also participates in various open-source software communities (e.g., JuliaLang) and civic activism (e.g., Code4PR, Mentes Puertorriqueñas en Accion).
+
+  In his non professional life, Bayoán enjoys spoiling his dog (Sadaharu), playing video games, watching TV, reading manga, and programming.
+
+  ![steam](https://steam-stat.vercel.app/api?profileName=nosferican)
+
+  [![psn](https://card.psnprofiles.com/2/Nosferican21.png)](https://psnprofiles.com/Nosferican21)
+
+  [![mal](https://malsignature.com/?/view?username=Nosferican&style=small)](https://myanimelist.net/profile/Nosferican)
+
+affiliations:
+  - name: Bureau of Economic Analysis
+    url: https://www.bea.gov/
+image:
+  src: /media/authors/me.png
+  alt: José Bayoán Santiago Calderón
+links:
+  - icon: at-symbol
+    url: mailto:naoyabpr@gmail.com
+    label: Email
+  - icon: brands/github
+    url: https://github.com/Nosferican
+    label: GitHub
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/jbscpr
+    label: LinkedIn
+  - icon: brands/instagram
+    url: https://instagram.com/Nosferican
+    label: Instagram
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0002-8406-6175
+    label: ORCID
+  - icon: academic-cap
+    url: /uploads/CV.pdf
+    label: Download CV
+# interests:
+#   - Science Policy
+#   - Data Science
+#   - Repurposing Administrative Data for Statistical Purposes
+#   - Computational Economics
+education:
+  - degree: PhD in Economics
+    institution: Claremont Graduate University
+    url: https://www.cgu.edu/academics/program/phd-economics
+    start: 2014-08-06
+    end: 2019-05-18
+    logo: /media/logos/cgu.svg
+  - degree: MA in Economics
+    institution: Claremont Graduate University
+    url: https://www.cgu.edu/academics/program/ma-economics
+    start: 2014-08-06
+    end: 2015-12-19
+    logo: /media/logos/cgu.svg
+  - degree: BA in Economics
+    institution: Southwestern University
+    url: https://www.southwestern.edu
+    start: 2010-08-15
+    end: 2014-05-10
+    notes: Minors in Mathematics, Political Science, French, and Chinese. Semesters abroad in Shanghai and Paris.
+    logo: /media/logos/southwestern.svg
+experience:
+  - role: Research Economist · Full-time
+    org: Bureau of Economic Analysis
+    org_url: https://www.bea.gov
+    location: Suitland, MD
+    start: 2021-05-10
+    logo: /media/logos/bea.svg
+    summary: Research on digital economy measurement, intellectual property products, own-account software, and data assets in national accounts.
+  - role: Senior Scientist II · Contract · Part-time
+    org: Pumas-AI
+    org_url: https://pumas.ai
+    location: Remote
+    start: 2018-08-14
+    end: 2023-12-01
+    logo: /media/logos/pumas.svg
+    summary: Strategic and scientific consulting for clinical development and product development, including bioequivalence workflows and quantitative software tooling.
+  - role: Postdoctoral Research Associate · Full-time
+    org: University of Virginia
+    org_url: https://biocomplexity.virginia.edu
+    location: Arlington, VA
+    start: 2019-05-06
+    end: 2021-05-14
+    logo: /media/logos/uva.svg
+    summary: Led and supported interdisciplinary public-sector analytics projects, including open-source software measurement, workforce studies, and public safety evaluation.
+  - role: Research Assistant · Contract
+    org: QuantEcon
+    org_url: https://quantecon.org
+    location: Remote
+    start: 2018-06-01
+    end: 2019-05-31
+    logo: /media/logos/qe.svg
+    summary: Contributed to QuantEcon lecture development and Julia ecosystem modernization.
+  - role: Data Science for the Public Good Fellow · Contract
+    org: Virginia Tech
+    org_url: https://vt.edu
+    location: Arlington, VA
+    start: 2018-05-21
+    end: 2020-08-10
+    logo: /media/logos/vt.svg
+    summary: Worked on public-interest projects spanning open-source software measurement and program evaluation.
+  - role: Data Scientist · Contract
+    org: Res-Intel
+    org_url: https://res-intel.com
+    location: Remote
+    start: 2016-09-13
+    end: 2018-08-01
+    logo: /media/logos/res-intel.svg
+    summary: Supported software development and quantitative analyses for energy and policy-focused projects.
+  - role: Research Fellow · Contract
+    org: Michigan State University
+    org_url: http://econ.msu.edu/aeasp/aeawelcome.php
+    location: East Lansing, MI
+    start: 2016-06-04
+    end: 2016-07-31
+    logo: /media/logos/msu.svg
+    summary: Teaching assistant for advanced research programming in the AEA Summer Program.
+  - role: Teaching Assistant · Contract
+    org: Johns Hopkins University
+    org_url: https://cty.jhu.edu
+    location: Baltimore, MD
+    start: 2015-06-18
+    end: 2015-08-01
+    logo: /media/logos/jhu.svg
+    summary: Supported fundamentals of microeconomics instruction in the CTY program.
+  - role: Research Assistant · Part-time
+    org: Center for Neuroeconomics Studies
+    org_url: https://neuroeconomicstudies.org
+    location: Claremont, CA
+    start: 2014-09-08
+    end: 2015-05-15
+    logo: /media/logos/cns.svg
+    summary: Assisted behavioral and biometric experimental data collection and analysis.
+  - role: Intern · Contract · Full-time
+    org: Sapientis
+    org_url: https://web.archive.org/web/20111103082329/http://www.sapientis.org/es/index.htm
+    location: San Juan, PR
+    start: 2011-05-01
+    end: 2011-08-01
+    logo: /media/logos/sapientis.svg
+    summary: Supported education-policy research and reporting through the PARACa fellowship program.
+skills:
+  - name: Research
+    items:
+      - label: Economics
+        level: 5
+      - label: Statistics
+        level: 5
+      - label: Data Science
+        level: 5
+  - name: Methods
+    items:
+      - label: Julia
+        level: 4
+      - label: R
+        level: 4
+      - label: Python
+        level: 4

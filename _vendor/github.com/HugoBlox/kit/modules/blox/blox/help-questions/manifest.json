@@ -1,0 +1,8 @@
+{
+  "name": "help-questions",
+  "version": "1",
+  "title": "Help Questions",
+  "description": "Display popular, trending, or featured help center questions",
+  "categories": ["content"],
+  "preview": "preview.svg"
+}

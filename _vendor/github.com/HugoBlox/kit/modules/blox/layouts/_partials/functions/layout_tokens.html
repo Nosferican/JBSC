@@ -1,0 +1,56 @@
+{{/*
+  HugoBlox Theme Engine: Layout Tokens
+
+  Resolves layout design tokens (radius, spacing) from the theme config
+  and emits them as CSS custom properties.
+
+  Input: Theme config dict from get_theme_config:
+    - layout: { radius, spacing }
+
+  Output: <style> (CSS custom properties for --hb-radius, --hb-spacing-*)
+*/}}
+
+{{/* Map radius tokens to CSS values */}}
+{{ $radius := .layout.radius | default "md" }}
+{{ $radius_value := "0.5rem" }}
+{{ if eq $radius "none" }}
+  {{ $radius_value = "0" }}
+{{ else if eq $radius "sm" }}
+  {{ $radius_value = "0.25rem" }}
+{{ else if eq $radius "md" }}
+  {{ $radius_value = "0.5rem" }}
+{{ else if eq $radius "lg" }}
+  {{ $radius_value = "0.75rem" }}
+{{ else if eq $radius "full" }}
+  {{ $radius_value = "9999px" }}
+{{ else }}
+  {{ warnf "LAYOUT TOKEN WARNING: Unknown radius value '%s'. Expected: none | sm | md | lg | full. Falling back to 'md' (0.5rem)." $radius }}
+{{ end }}
+
+{{/* Map spacing tokens to CSS values */}}
+{{ $spacing := .layout.spacing | default "spacious" }}
+{{ $spacing_base := "1.25rem" }}
+{{ $spacing_section := "6rem" }}
+{{ if eq $spacing "compact" }}
+  {{ $spacing_base = "0.75rem" }}
+  {{ $spacing_section = "2.5rem" }}
+{{ else if eq $spacing "comfortable" }}
+  {{ $spacing_base = "1rem" }}
+  {{ $spacing_section = "4rem" }}
+{{ else if eq $spacing "spacious" }}
+  {{ $spacing_base = "1.25rem" }}
+  {{ $spacing_section = "6rem" }}
+{{ else }}
+  {{ warnf "LAYOUT TOKEN WARNING: Unknown spacing value '%s'. Expected: compact | comfortable | spacious. Falling back to 'spacious'." $spacing }}
+{{ end }}
+
+<style>
+  :root {
+    /* Layout — Border Radius */
+    --hb-radius: {{ $radius_value | safeCSS }};
+
+    /* Layout — Spacing */
+    --hb-spacing-base: {{ $spacing_base | safeCSS }};
+    --hb-spacing-section: {{ $spacing_section | safeCSS }};
+  }
+</style>

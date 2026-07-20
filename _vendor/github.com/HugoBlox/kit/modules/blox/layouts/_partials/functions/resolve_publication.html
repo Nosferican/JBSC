@@ -1,0 +1,97 @@
+{{/*
+  Resolve publication metadata from page params.
+
+  Supports the structured shape and warns on the legacy flat shape:
+    Structured:  publication: { name, short_name, volume, issue, pages, publisher }
+    Legacy:      publication: "*Journal Name*, 12(3)"  +  publication_short: "*JN*"
+
+  Legacy pages emit a per-page suppressible warning pointing users to the
+  `hugoblox migrate publications` CLI command.
+
+  Args:
+    A page context (`.`)
+
+  Returns dict:
+    name           Full publication name (empty for legacy)
+    short_name     Abbreviated name
+    volume         Volume number as string
+    issue          Issue number as string
+    pages          Page range
+    publisher      Publisher name
+    display        Markdown-ready display string, e.g. "*Name*, 12(3), 100-120"
+    display_short  Markdown-ready compact form (uses short_name when set)
+    is_legacy      true if the page used the legacy flat string shape
+    is_empty       true if no publication info is set
+*/}}
+{{- $page := . -}}
+{{- $raw := $page.Params.publication -}}
+{{- $legacy_short := $page.Params.publication_short -}}
+
+{{- $name := "" -}}
+{{- $short_name := "" -}}
+{{- $volume := "" -}}
+{{- $issue := "" -}}
+{{- $pages := "" -}}
+{{- $publisher := "" -}}
+{{- $is_legacy := false -}}
+{{- $is_empty := false -}}
+
+{{- if reflect.IsMap $raw -}}
+  {{- $name = $raw.name | default "" -}}
+  {{- $short_name = $raw.short_name | default "" -}}
+  {{- with $raw.volume -}}{{- $volume = printf "%v" . -}}{{- end -}}
+  {{- with $raw.issue -}}{{- $issue = printf "%v" . -}}{{- end -}}
+  {{- $pages = $raw.pages | default "" -}}
+  {{- $publisher = $raw.publisher | default "" -}}
+{{- else if $raw -}}
+  {{- $is_legacy = true -}}
+  {{- $name = $raw -}}
+  {{- $short_name = $legacy_short | default "" -}}
+  {{- partial "functions/logger.html" (dict
+      "page" $page
+      "level" "warn"
+      "id" (printf "pub-legacy-%s" $page.RelPermalink)
+      "message" (printf "%s uses the legacy flat `publication` string. Migrate to the structured shape `publication: {name, short_name, volume, issue, pages, publisher}` by running: hugoblox migrate publications" $page.RelPermalink)
+  ) -}}
+{{- else -}}
+  {{- $is_empty = true -}}
+{{- end -}}
+
+{{- $display := "" -}}
+{{- $display_short := "" -}}
+
+{{- if $is_legacy -}}
+  {{- $display = $name -}}
+  {{- $display_short = $short_name | default $name -}}
+{{- else if not $is_empty -}}
+  {{- $core := "" -}}
+  {{- with $name -}}{{- $core = printf "*%s*" . -}}{{- end -}}
+  {{- with $volume -}}{{- $core = printf "%s, %s" $core . -}}{{- end -}}
+  {{- with $issue -}}{{- $core = printf "%s(%s)" $core . -}}{{- end -}}
+  {{- with $pages -}}{{- $core = printf "%s, %s" $core . -}}{{- end -}}
+  {{- $display = $core -}}
+
+  {{- $short_core := "" -}}
+  {{- if $short_name -}}
+    {{- $short_core = printf "*%s*" $short_name -}}
+  {{- else if $name -}}
+    {{- $short_core = printf "*%s*" $name -}}
+  {{- end -}}
+  {{- with $volume -}}{{- $short_core = printf "%s, %s" $short_core . -}}{{- end -}}
+  {{- with $issue -}}{{- $short_core = printf "%s(%s)" $short_core . -}}{{- end -}}
+  {{- with $pages -}}{{- $short_core = printf "%s, %s" $short_core . -}}{{- end -}}
+  {{- $display_short = $short_core -}}
+{{- end -}}
+
+{{- return (dict
+    "name" $name
+    "short_name" $short_name
+    "volume" $volume
+    "issue" $issue
+    "pages" $pages
+    "publisher" $publisher
+    "display" $display
+    "display_short" $display_short
+    "is_legacy" $is_legacy
+    "is_empty" $is_empty
+) -}}

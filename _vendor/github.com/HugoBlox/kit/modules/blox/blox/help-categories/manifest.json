@@ -1,0 +1,8 @@
+{
+  "name": "help-categories",
+  "version": "1",
+  "title": "Help Categories",
+  "description": "Grid of help center / knowledge base category cards",
+  "categories": ["content", "navigation"],
+  "preview": "preview.svg"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "steps",
+  "name": "Steps",
+  "version": "1.0.0",
+  "license": "MIT",
+  "category": "content",
+  "intent": ["inform", "convert"],
+  "verticals": ["startup", "saas", "agency", "dev-portfolio", "lab", "academic-cv"],
+  "tags": ["steps", "process", "how-it-works", "timeline", "onboarding", "tutorial", "roadmap", "milestones"],
+  "description": "Numbered process steps with vertical, horizontal, and timeline layouts. Use for 'How it works', onboarding flows, installation guides, feature walkthroughs, and project timelines. Supports icons, badges, dates, images, and per-step CTAs.",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "steps", "process", "timeline", "how-it-works", "onboarding"]
+}

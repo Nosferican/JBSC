@@ -1,0 +1,15 @@
+{
+  "id": "gallery",
+  "name": "Gallery",
+  "version": "1.0.0",
+  "license": "MIT",
+  "category": "media",
+  "intent": ["showcase", "inform"],
+  "verticals": ["academic-cv", "event", "agency", "dev-portfolio", "podcaster", "startup", "local-business"],
+  "tags": ["gallery", "photos", "images", "album", "masonry", "grid", "lightbox"],
+  "description": "Image gallery with grid and masonry layouts, click-to-zoom lightbox, responsive variants, and lazy-loaded LQIP placeholders. Source images from explicit items, an album folder, or remote URLs.",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "gallery", "photos", "lightbox", "masonry", "grid"]
+}

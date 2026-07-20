@@ -1,0 +1,35 @@
+# HugoBlox Font Pack
+# https://docs.hugoblox.com
+
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Developer"
+    vendor: "hugoblox"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Technical, code-forward pairing for developer portfolios and docs"
+
+  families:
+    heading: "Space Grotesk"
+    body: "IBM Plex Sans"
+    code: "Fira Code"
+
+  weights:
+    heading: [500, 700]
+    body: [400, 500, 600]
+    code: [400, 700]
+
+  leading:
+    heading: 1.2
+    body: 1.6
+    code: 1.5
+
+  tracking:
+    heading: "-0.02em"
+    body: "0"
+
+  variable:
+    heading: true
+    body: false
+    code: true

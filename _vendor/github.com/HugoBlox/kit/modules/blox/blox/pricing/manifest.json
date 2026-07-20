@@ -1,0 +1,15 @@
+{
+  "id": "pricing",
+  "name": "Pricing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "category": "conversion",
+  "intent": ["convert", "inform"],
+  "verticals": ["startup", "saas", "agency", "dev-portfolio", "link-in-bio"],
+  "tags": ["pricing", "plans", "tiers", "billing", "saas", "subscription", "conversion"],
+  "description": "Display pricing tiers with optional monthly/yearly billing toggle, feature checklists, highlighted tiers, badges, and per-tier CTAs",
+  "author": "Hugo Blox",
+  "homepage": "https://hugoblox.com/blocks/",
+  "repository": "https://github.com/HugoBlox/kit",
+  "keywords": ["hugo", "static-site", "pricing", "plans", "saas", "billing"]
+}

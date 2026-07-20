@@ -1,0 +1,14 @@
+{{/* Return raw SVG content for Preact component consumption.
+     Thin wrapper around get_icon_svg.html — see that partial for resolution logic.
+
+     USAGE:
+     {{ $svg := partial "functions/get_icon_data" (dict "name" "hero/arrow-right") }}
+     Then pass $svg as a prop to a Preact component.
+*/}}
+
+{{- $name := .name | default "" -}}
+{{- $icon := "" -}}
+{{- if $name -}}
+  {{- $icon = partial "functions/get_icon_svg" (dict "name" $name "pack" (.pack | default "")) -}}
+{{- end -}}
+{{- $icon -}}

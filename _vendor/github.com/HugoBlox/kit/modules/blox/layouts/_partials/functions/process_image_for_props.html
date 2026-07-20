@@ -1,0 +1,45 @@
+{{/*
+  process_image_for_props — One-shot helper: resolves an image path and returns a
+  {src, srcset?, width?, height?} dict ready to merge into a Preact block's props.
+  SVGs and GIFs pass through unprocessed (preserves vectors / animation frames).
+
+  Inputs:
+    .path:  image path (required)
+    .Page:  current page (recommended for page-resource lookup)
+    .sizes: slice of widths for srcset generation
+            (optional, defaults to [600, 900, 1200, 1800])
+
+  Returns: image data dict {src, srcset?, width?, height?}, or empty dict if the
+  path is missing or unresolvable.
+*/}}
+{{ $result := dict }}
+{{ $path := .path | default "" }}
+
+{{ if $path }}
+  {{ $sizes := .sizes | default (slice 600 900 1200 1800) }}
+  {{ $resolved := partial "functions/resolve_image_resource" (dict "path" $path "Page" .Page) }}
+
+  {{ with $resolved.resource }}
+    {{ $canProcess := and (reflect.IsImageResourceProcessable .) (ne .MediaType.SubType "gif") }}
+    {{ if not $canProcess }}
+      {{ $result = dict "src" .RelPermalink }}
+    {{ else }}
+      {{ $responsive := partial "functions/process_responsive_image.html" (dict
+          "image" .
+          "mode" "fit"
+          "sizes" $sizes
+      ) }}
+      {{ $result = dict
+          "src" $responsive.fallback.RelPermalink
+          "srcset" $responsive.srcset
+          "width" $responsive.fallback.Width
+          "height" $responsive.fallback.Height
+      }}
+    {{ end }}
+  {{ end }}
+  {{ with $resolved.fallback_url }}
+    {{ $result = dict "src" . }}
+  {{ end }}
+{{ end }}
+
+{{ return $result }}
