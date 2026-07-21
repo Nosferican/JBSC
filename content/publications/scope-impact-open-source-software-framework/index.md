@@ -1,13 +1,13 @@
 ---
 title: "The Scope and Impact of Open Source Software: A Framework for Analysis and Preliminary Cost Estimates"
 authors:
-  - Carol A Robbins
+  - Carol A. Robbins
   - Gizem Korkmaz
   - me
-  - Aaron D Schroeder
+  - Aaron D. Schroeder
   - Claire Kelling
-  - Stephanie S Shipp
-  - Sallie A Keller
+  - Stephanie S. Shipp
+  - Sallie A. Keller
 date: '2018-08-21T00:00:00Z'
 publication_types: ['article']
 publication:
@@ -19,5 +19,5 @@ abstract: |
 featured: false
 links:
   - type: pdf
-    url: https://scholar.google.com/scholar?oi=bibs&hl=en&cluster=16290588106234930952
+    url: http://old.iariw.org/copenhagen/robbins.pdf
 ---

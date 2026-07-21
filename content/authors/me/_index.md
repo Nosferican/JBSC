@@ -4,7 +4,7 @@ slug: me
 is_owner: true
 title: Dr
 name:
-  display: Dr. J. Bayoán Santiago Calderón
+  display: J. Bayoán Santiago Calderón
   given: José Bayoán
   family: Santiago Calderón
 postnominals:
@@ -64,7 +64,7 @@ education:
     notes: Minors in Mathematics, Political Science, French, and Chinese. Semesters abroad in Shanghai and Paris.
     logo: /media/logos/southwestern.svg
 experience:
-  - role: Research Economist · Full-time
+  - role: Senior Research Economist · Full-time
     org: U.S. Bureau of Economic Analysis
     org_url: https://www.bea.gov
     location: Suitland, MD

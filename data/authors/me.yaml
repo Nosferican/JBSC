@@ -2,7 +2,8 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. José Bayoán Santiago Calderón
+  title: Dr.
+  display: José Bayoán Santiago Calderón
   given: José Bayoán
   family: Santiago Calderón
   alternate: ''
@@ -13,22 +14,18 @@ postnominals:
 status:
   icon: ""
   show_icon: false
-role: Research Economist
+role: Senior Research Economist
 bio: |
-  José Bayoán Santiago Calderón is a senior research economist in the national economic accounts research group at the U.S. Bureau of Economic Analysis. Before joining the federal statistical system, Dr. Santiago Calderón had years of experience in the private sector as a research scientist at various companies. Bayoán also held academic appointments with the Biocomplexity Institute and Initiative at the University of Virginia, where he started his career in public service.
+  Dr. Santiago Calderón is a senior research economist in the national economic accounts research group at the U.S. Bureau of Economic Analysis.
+  Before joining the federal statistical system, he had years of experience in the private sector as a research scientist at various companies.
+  Bayoán also held academic appointments with the Biocomplexity Institute and Initiative at the University of Virginia, where he started his career in public service.
   
-  His research has centered on improving decision-making. His transdisciplinary research approach has enabled him to routinely collaborate across disciplines and develop a diverse set of domain knowledge and methodological toolset. He also participates in various open-source software communities (e.g., JuliaLang) and civic activism (e.g., Code4PR, Mentes Puertorriqueñas en Accion).
-
-  In his non professional life, Bayoán enjoys spoiling his dog (Sadaharu), playing video games, watching TV, reading manga, and programming.
-
-  ![steam](https://steam-stat.vercel.app/api?profileName=nosferican)
-
-  [![psn](https://card.psnprofiles.com/2/Nosferican21.png)](https://psnprofiles.com/Nosferican21)
-
-  [![mal](https://malsignature.com/?/view?username=Nosferican&style=small)](https://myanimelist.net/profile/Nosferican)
+  His research has centered on improving decision-making.
+  His transdisciplinary research approach has enabled him to routinely collaborate across disciplines and develop a diverse set of domain knowledge and methodological toolset.
+  He also participates in various open-source software communities (e.g., JuliaLang) and civic activism (e.g., Code4PR, Mentes Puertorriqueñas en Accion).
 
 affiliations:
-  - name: Bureau of Economic Analysis
+  - name: U.S. Bureau of Economic Analysis
     url: https://www.bea.gov/
 image:
   src: /media/authors/me.png
@@ -78,21 +75,33 @@ education:
     notes: Minors in Mathematics, Political Science, French, and Chinese. Semesters abroad in Shanghai and Paris.
     logo: /media/logos/southwestern.svg
 experience:
-  - role: Research Economist · Full-time
-    org: Bureau of Economic Analysis
+  - role: Senior Research Economist · Full-time
+    org: U.S. Bureau of Economic Analysis
     org_url: https://www.bea.gov
     location: Suitland, MD
     start: 2021-05-10
     logo: /media/logos/bea.svg
-    summary: Research on digital economy measurement, intellectual property products, own-account software, and data assets in national accounts.
+    summary: |
+
+      \- Published research on national economic accounts and measurement issues, primarily focusing on intellectual property products (IPPs), such as software and data assets.
+
+      \- Contributed to official statistics through innovative methodologies and operational enhancements. Some examples include the use of big data, natural language processing (NLP), and machine learning, implemented in Python, R, Julia, MATLAB, and Stata.
+
+      \- Collaborated and engaged with stakeholders, including members of international expert groups and policymakers.Research on digital economy measurement, intellectual property products, own-account software, and data assets in national accounts.
+
   - role: Senior Scientist II · Contract · Part-time
     org: Pumas-AI
     org_url: https://pumas.ai
     location: Remote
-    start: 2018-08-14
-    end: 2023-12-01
+    start: 2020-05-01
+    end: 2023-11-01
     logo: /media/logos/pumas.svg
-    summary: Strategic and scientific consulting for clinical development and product development, including bioequivalence workflows and quantitative software tooling.
+    summary: |
+    
+      Provided strategic and scientific consulting services in model-informed drug development (MIDD), including exposure-response analysis and clinical trial simulations across multiple therapeutic areas, such as rare diseases, metabolic diseases, oncology, and vaccines.
+      Some of the technologies used for the work include Pumas, Julia, R, and SAS.
+      Strategic and scientific consulting for clinical development and product development, including bioequivalence workflows and quantitative software tooling.
+
   - role: Postdoctoral Research Associate · Full-time
     org: University of Virginia
     org_url: https://biocomplexity.virginia.edu
@@ -100,7 +109,25 @@ experience:
     start: 2019-05-06
     end: 2021-05-14
     logo: /media/logos/uva.svg
-    summary: Led and supported interdisciplinary public-sector analytics projects, including open-source software measurement, workforce studies, and public safety evaluation.
+    summary: |
+
+      \- Provided government clients consulting services in the areas of science policy, labor economics, computational models, and program evaluation through problem identification, data discovery (inventory, screening, acquisition), data ingestion, data wrangling (profiling, preparation, linkage, and exploration), fitness-for-use assessment, statistical modeling, and analysis.
+      
+      \- The work employed high-performance computing (HPC) environment and tools like Slurm, Git, containers, and databases (PostgreSQL) to store and access billions of records, some collected through APIs (e.g., REST, GraphQL) that were used in natural language processing (NLP), geographic information systems (GIS), agent-based modeling (ABM), graph theory, and regression analysis using SQL, Julia, and R.
+
+      \- Led and supported interdisciplinary public-sector analytics projects, including open-source software measurement, workforce studies, and public safety evaluation.
+
+  - role: Consultant · Contract 
+    org: JuliaHub
+    org_url: https://juliahub.com/
+    location: Remote
+    start: 2018-08-01
+    end: 2019-07-01
+    logo: /media/logos/juliahub.svg
+    summary: |
+
+      Developed components for integrated scientific modeling, simulation, and AI/ML software for quantitative work required by regulatory agencies throughout the drug development cycle. My primary contribution was the development of the bioequivalence module, used in successful FDA submissions.
+
   - role: Research Assistant · Contract
     org: QuantEcon
     org_url: https://quantecon.org
@@ -109,6 +136,7 @@ experience:
     end: 2019-05-31
     logo: /media/logos/qe.svg
     summary: Contributed to QuantEcon lecture development and Julia ecosystem modernization.
+  
   - role: Data Science for the Public Good Fellow · Contract
     org: Virginia Tech
     org_url: https://vt.edu
@@ -117,6 +145,7 @@ experience:
     end: 2020-08-10
     logo: /media/logos/vt.svg
     summary: Worked on public-interest projects spanning open-source software measurement and program evaluation.
+
   - role: Data Scientist · Contract
     org: Res-Intel
     org_url: https://res-intel.com
@@ -124,15 +153,21 @@ experience:
     start: 2016-09-13
     end: 2018-08-01
     logo: /media/logos/res-intel.svg
-    summary: Supported software development and quantitative analyses for energy and policy-focused projects.
+    summary: |
+
+      \- Developed the statistical components for the mass-scale residential building energy benchmarking used in demand side management (DSM).
+      The work leveraged various data sources, including real estate information, government administrative records (e.g., building footprint, zoning), weather records, geographic information systems (GIS) layers, and utility meter data. Some of the technologies employed include APIs, databases (SQL), and R.
+      
+      \- Delivered commissioned reports and analyses related to program evaluations of building policies and energy use programs in California.
+
   - role: Research Fellow · Contract
     org: Michigan State University
-    org_url: http://econ.msu.edu/aeasp/aeawelcome.php
+    org_url: https://www.aeaweb.org/about-aea/committees/summer-fellows-program
     location: East Lansing, MI
     start: 2016-06-04
     end: 2016-07-31
     logo: /media/logos/msu.svg
-    summary: Teaching assistant for advanced research programming in the AEA Summer Program.
+    summary: Teaching assistant for the advanced research course at the American Economic Association (AEA) Summer Program taught by Dr. Lisa D. Cook.
   - role: Teaching Assistant · Contract
     org: Johns Hopkins University
     org_url: https://cty.jhu.edu
@@ -148,7 +183,12 @@ experience:
     start: 2014-09-08
     end: 2015-05-15
     logo: /media/logos/cns.svg
-    summary: Assisted behavioral and biometric experimental data collection and analysis.
+    summary: |
+
+      \- Conducted neuroeconomic studies, encompassing aspects of study design, recruitment, experimentation, and data analysis, included in published academic articles.
+
+      \- Collected and analyzed biometric data, including EDA/GSR, EEG, ECG, and eyetracking, using iMotions.
+    
   - role: Intern · Contract · Full-time
     org: Sapientis
     org_url: https://web.archive.org/web/20111103082329/http://www.sapientis.org/es/index.htm
